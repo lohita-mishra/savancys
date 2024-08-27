@@ -1,0 +1,10 @@
+Bundle-Name: savansys-api
+Bundle-SymbolicName: com.savancys.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.savancys.exception,\
+	com.savancys.model,\
+	com.savancys.service,\
+	com.savancys.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../savansys-service/service.xml

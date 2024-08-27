@@ -1,0 +1,4 @@
+Bundle-Name: savancys-contactus-web
+Bundle-SymbolicName: com.savancys.contactus.web
+Bundle-Version: 1.0.0
+Export-Package: com.savancys.contactus.web.constants
