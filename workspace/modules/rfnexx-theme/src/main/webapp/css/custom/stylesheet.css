@@ -1,0 +1,16 @@
+body {
+	overflow-x: hidden;
+}
+
+.portlet-title-text {
+	display: none;
+}
+
+.portlet-title-editable {
+	display: none;
+}
+
+.portlet, .portlet-header{
+margin: 0px !important;
+margin-bottom:0px !important:
+}

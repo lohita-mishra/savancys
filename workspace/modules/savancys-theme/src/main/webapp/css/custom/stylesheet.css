@@ -1,0 +1,37 @@
+body {
+	overflow-x: hidden;
+}
+
+.portlet-title-text {
+	display: none;
+}
+
+.portlet-title-editable {
+	display: none;
+}
+
+.portlet-header{
+display:flex !important;
+}
+
+.loggedIn header.site_heder.active {
+    width: calc(100% - 7px);
+    position: relative !important;
+}
+
+footer.site_footer {
+  background: url(../../images/custom/footer_background.png) !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+@media screen and (max-width: 991px) {
+    header.site_heder.mobile {
+        padding: 0.7rem 2rem 0.7rem 1.5rem !important;
+    }
+
+.container {
+    padding:0 1rem !important; 
+}
+}
+

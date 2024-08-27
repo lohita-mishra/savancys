@@ -1,0 +1,46 @@
+/* :root {
+  
+  --theme-font: "Lato", sans-serif;
+  font-size: 16px;
+}*/
+
+body {
+  overflow-x: hidden;
+} 
+
+.portlet-title-text {
+	display:none;
+}
+.portlet-title-editable{
+	display:none;
+}
+
+footer.site_footer{
+	background-image:url(../../images/custom/footer_background.png) !important;
+  	background-repeat: no-repeat !important;
+  	background-size: cover !important;
+  	background-position: center !important;
+}
+
+a.white-anchor {
+    color: var(--white);
+}
+
+/*a{
+	color:white !important;
+}
+
+
+.site_footer .footer_logo{
+	width:183px;
+	height:44px;
+}
+
+ p {
+	color: #B2B0BC;
+}
+.white-anchor{
+	color: white;
+	text-decoration: none;
+} */
+

@@ -1,0 +1,156 @@
+@media screen and (max-width: 991px) {
+  header.site_heder.mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--white);
+    z-index: 9;
+    border-radius: 4rem;
+    margin: 1rem 1rem;
+    width: calc(100% - 2rem);
+    padding: 0.7rem 2rem 0.7rem 0.5rem;
+    box-shadow: 0px 7px 30px -12px rgba(0, 6, 52, 0.231372549);
+  }
+  header.site_heder.mobile section[id*=top_right_nav] .demo-n-login-buttons {
+    display: none !important;
+  }
+  header.site_heder.mobile nav {
+    position: fixed;
+    background: var(--white);
+    display: flex;
+    z-index: 9999;
+    width: calc(100vw - 4rem);
+    transform: translate(-50%, 0);
+    left: 50%;
+    top: 6rem;
+    max-height: calc(95vh - 6rem);
+    border-radius: 2rem;
+    overflow: auto;
+    height: 0;
+    transition: 0.5s;
+    box-shadow: 0px 7px 30px -12px rgba(0, 6, 52, 0.231372549);
+  }
+  header.site_heder.mobile nav.open {
+    height: 95vh;
+  }
+  header.site_heder.mobile nav > ul {
+    margin: 0;
+    list-style: none !important;
+    width: 100%;
+    padding: 2rem 1rem 0rem 1rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.1rem;
+  }
+  header.site_heder.mobile nav > ul > li {
+    padding: 0 1rem;
+  }
+  header.site_heder.mobile nav > ul > li > a {
+    font-size: 1.5rem;
+    color: var(--dark-grey);
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none !important;
+  }
+  header.site_heder.mobile nav > ul > li > a i {
+    display: none;
+  }
+  header.site_heder.mobile nav > ul > li > a:after {
+    content: "\f105";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    transition: 0.1s;
+  }
+  header.site_heder.mobile nav > ul > li > a.active {
+    color: var(--yellow-1);
+  }
+  header.site_heder.mobile nav > ul > li > a.active:after {
+    transform: rotate(90deg);
+  }
+  header.site_heder.mobile nav > ul .mega-menu {
+    display: none;
+  }
+  header.site_heder.mobile nav > ul .mega-menu.active {
+    display: flex;
+  }
+  header.site_heder.mobile nav > ul .mega-menu .menu-granding {
+    display: none;
+  }
+  header.site_heder.mobile nav > ul .mega-menu .menu-content {
+    padding: 1.1rem;
+    margin: 0;
+    list-style: none;
+    flex-direction: column;
+    row-gap: 1.5rem;
+    border: 1px solid;
+    border-radius: 1.5rem;
+    border-color: var(--border-color);
+  }
+  header.site_heder.mobile .demo-n-login-buttons {
+    flex-basis: 100%;
+    display: flex;
+    align-items: end;
+    padding-bottom: 1rem;
+  }
+  header.site_heder.mobile .demo-n-login-buttons a {
+    padding: 1rem 2.5rem;
+    border-radius: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(4rem);
+            backdrop-filter: blur(4rem);
+    text-decoration: none !important;
+    background: var(--blue-8);
+    color: var(--white);
+    width: 100%;
+    display: flex;
+  }
+  header.site_heder .trigger {
+    width: 2rem;
+    height: 1.438rem;
+    position: relative;
+    transform: rotate(0deg);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+  }
+  header.site_heder .trigger span {
+    display: block;
+    position: absolute;
+    height: 0.2rem;
+    width: 100%;
+    background: var(--dark-grey);
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+  }
+  header.site_heder .trigger span:nth-child(1) {
+    top: 0px;
+  }
+  header.site_heder .trigger span:nth-child(2), header.site_heder .trigger span:nth-child(3) {
+    top: 0.6rem;
+  }
+  header.site_heder .trigger span:nth-child(4) {
+    top: 1.2rem;
+  }
+  header.site_heder .trigger.open span:nth-child(1) {
+    top: 0.6rem;
+    width: 0%;
+    left: 50%;
+  }
+  header.site_heder .trigger.open span:nth-child(2) {
+    transform: rotate(45deg);
+  }
+  header.site_heder .trigger.open span:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+  header.site_heder .trigger.open span:nth-child(4) {
+    top: 0.6rem;
+    width: 0%;
+    left: 50%;
+  }
+  .home-page-hero-banner .container > .row > .col-12:nth-child(2) {
+    display: none !important;
+  }
+}/*# sourceMappingURL=responsive.css.map */
