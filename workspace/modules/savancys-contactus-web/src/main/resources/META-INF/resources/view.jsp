@@ -38,10 +38,11 @@
 }
 </style>
 
+
 <div class="container-fluid p-0">
 	<div class="row m-0">
 		<div class="col-md-6 web-content p-0">
-			<liferay-portlet:runtime
+			<liferay-portlet:runtime instanceId="contact_us"
 				portletName="com_liferay_journal_content_web_portlet_JournalContentPortlet" />
 		</div>
 
@@ -83,14 +84,14 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-12">
 							<aui:input type="text" name="companyName" label="Company Name"
 								id="companyName">
 								<aui:validator name="required"
 									errorMessage="The Company Name field is required." />
 							</aui:input>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-12">
 							<aui:input type="text" name="country" label="Country"
 								id="country">
 								<aui:validator name="required" />
@@ -108,7 +109,7 @@
 							<input type="checkbox" name="termsAndConditions"
 								id="termsAndConditions" required="required"> <label>I
 								agree to <span class="text-primary text-decoration-underline">Terms
-									& Conditions</span> of NobIQ.
+									& Conditions</span> of Savancys.
 							</label>
 
 						</div>
@@ -122,13 +123,19 @@
 </div>
 
 <script>
-	const phoneNumberField = document
-			.querySelector("#<portlet:namespace/>phoneNumber");
-	const phoneNumberInput = window
-			.intlTelInput(
+	/* const phoneNumberField = document.querySelector("#<portlet:namespace/>phoneNumber");
+	const phoneNumberInput = window.intlTelInput(
 					phoneNumberField,
 					{
-						initialCountry : "in",
+						initialCountry : "us",
+						separateDialCode : true,
+						utilsScript : "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/utils.js",
+					}); */
+					
+			window.intlTelInput(
+					$("#<portlet:namespace/>phoneNumber"),
+					{
+						initialCountry : "en",
 						separateDialCode : true,
 						utilsScript : "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/utils.js",
 					});
@@ -167,7 +174,7 @@
 							setTimeout(pageReload, 1500);
 						}
 					}
-				});
+		        }
 			});
 
 		} else {

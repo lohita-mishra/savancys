@@ -1,0 +1,15 @@
+<custom-sql>
+
+<sql id="fetchCustomJobApplicants"> 
+    	<![CDATA[ 
+	        SELECT ja.jobApplicantID as id,
+		    	CONCAT(ja.firstName, ' ', ja.lastName) as name, 
+		       	ja.phoneNumber,
+		       	ja.createDate,
+		 		jp.jobPostName
+			FROM jobapplicant ja
+			INNER JOIN jobpost jp ON ja.jobPostId = jp.jobPostId
+		]]>
+	</sql>
+
+</custom-sql>
