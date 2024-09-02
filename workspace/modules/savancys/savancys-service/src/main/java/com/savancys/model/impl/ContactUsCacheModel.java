@@ -53,7 +53,7 @@ public class ContactUsCacheModel
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(33);
+		StringBundler sb = new StringBundler(35);
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -87,6 +87,8 @@ public class ContactUsCacheModel
 		sb.append(country);
 		sb.append(", additionalInfo=");
 		sb.append(additionalInfo);
+		sb.append(", fullname=");
+		sb.append(fullname);
 		sb.append("}");
 
 		return sb.toString();
@@ -185,6 +187,13 @@ public class ContactUsCacheModel
 			contactUsImpl.setAdditionalInfo(additionalInfo);
 		}
 
+		if (fullname == null) {
+			contactUsImpl.setFullname("");
+		}
+		else {
+			contactUsImpl.setFullname(fullname);
+		}
+
 		contactUsImpl.resetOriginalValues();
 
 		return contactUsImpl;
@@ -212,6 +221,7 @@ public class ContactUsCacheModel
 		companyName = objectInput.readUTF();
 		country = objectInput.readUTF();
 		additionalInfo = objectInput.readUTF();
+		fullname = objectInput.readUTF();
 	}
 
 	@Override
@@ -296,6 +306,13 @@ public class ContactUsCacheModel
 		else {
 			objectOutput.writeUTF(additionalInfo);
 		}
+
+		if (fullname == null) {
+			objectOutput.writeUTF("");
+		}
+		else {
+			objectOutput.writeUTF(fullname);
+		}
 	}
 
 	public String uuid;
@@ -314,5 +331,6 @@ public class ContactUsCacheModel
 	public String companyName;
 	public String country;
 	public String additionalInfo;
+	public String fullname;
 
 }

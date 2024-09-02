@@ -9,7 +9,7 @@
   --blue-8: #3693C0;
   --green-1: #245707;
   --yellow-1: #ffb342;
-  --gray-1: #7E7E7E;
+  --gray-1: #505F79;
   --black: #000;
   --black-alt: #121111;
   --black-alt-2: #181D26;
@@ -21,7 +21,7 @@
   --padding-bottom-sec: 4rem;
   --theme-border-radius: 1rem;
   --theme-color-alt: ;
-  --text-color: var(--gray-1);
+  --text-color: #000;
   --text-color-alt: ;
   --heading-color: var(--dark-grey);
   --theme-font: "DM Sans", sans-serif;
@@ -29,9 +29,9 @@
 }
 
 body {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: normal;
-  line-height: normal;
+  line-height: 140%;
   color: var(--text-color);
   font-family: var(--theme-font);
 }

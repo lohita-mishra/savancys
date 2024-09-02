@@ -24,6 +24,7 @@
 		<property access="com.liferay.portal.dao.orm.hibernate.MethodPropertyAccessor" name="companyName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.MethodPropertyAccessor" name="country" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.MethodPropertyAccessor" name="additionalInfo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.MethodPropertyAccessor" name="fullname" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 	</class>
 	<class name="com.savancys.model.impl.JobApplicantImpl" table="JobApplicant">
 		<id access="com.liferay.portal.dao.orm.hibernate.MethodPropertyAccessor" name="jobApplicantID" type="long">

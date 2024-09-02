@@ -69,7 +69,31 @@ $(document).ready(function () {
         ]
     });
 
-
+    // Other Industries In Industry Desc Page ---------------
+    $('.industries-slider-slides').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1000,
+        speed: 1000,
+        pauseOnHover: false,
+        arrows: false,
+        responsive: [
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1
+                }
+            }
+        ]
+    });
+    
  // Home Page Experience Counter Section ------------------
     let counted = 0;
     let isLoggedIn = $("body").hasClass("loggedIn");
@@ -183,7 +207,7 @@ $(document).ready(function () {
         }
     });
 
-
+/*
     if (!isLoggedIn) {
         let smoother = ScrollSmoother.create({
             smooth: 3,
@@ -191,7 +215,7 @@ $(document).ready(function () {
             normalizeScroll: false
         });
         gsap.registerPlugin(smoother);
-    }
+    }*/
 
 
     AOS.init();

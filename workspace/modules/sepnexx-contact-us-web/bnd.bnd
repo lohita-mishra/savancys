@@ -1,0 +1,6 @@
+Bundle-Name: sepnexx-contact-us-web
+Bundle-SymbolicName: com.sepnexx.contact.us.web
+Bundle-Version: 1.0.0
+Export-Package: \
+	com.sepnexx.contact.us.web.constants,\
+	com.sapnexx.common.validator.util

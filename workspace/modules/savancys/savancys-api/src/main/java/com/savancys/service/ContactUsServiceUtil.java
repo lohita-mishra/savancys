@@ -34,6 +34,15 @@ public class ContactUsServiceUtil {
 		return getService().getOSGiServiceIdentifier();
 	}
 
+	public static java.lang.String saveSapnexxContact(
+		java.lang.String fullname, java.lang.String phoneNumber,
+		java.lang.String email, java.lang.String companyName,
+		java.lang.String additionalInfo) {
+
+		return getService().saveSapnexxContact(
+			fullname, phoneNumber, email, companyName, additionalInfo);
+	}
+
 	public static ContactUsService getService() {
 		return _service;
 	}

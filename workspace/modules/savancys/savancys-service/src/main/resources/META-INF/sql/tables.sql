@@ -14,7 +14,8 @@ create table ContactUs (
 	email VARCHAR(75) null,
 	companyName VARCHAR(75) null,
 	country VARCHAR(75) null,
-	additionalInfo VARCHAR(75) null
+	additionalInfo VARCHAR(500) null,
+	fullname VARCHAR(200) null
 );
 
 create table JobApplicant (

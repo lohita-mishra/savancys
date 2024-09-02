@@ -36,6 +36,15 @@ public class ContactUsServiceWrapper
 	}
 
 	@Override
+	public String saveSapnexxContact(
+		String fullname, String phoneNumber, String email, String companyName,
+		String additionalInfo) {
+
+		return _contactUsService.saveSapnexxContact(
+			fullname, phoneNumber, email, companyName, additionalInfo);
+	}
+
+	@Override
 	public ContactUsService getWrappedService() {
 		return _contactUsService;
 	}

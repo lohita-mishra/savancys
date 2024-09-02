@@ -123,45 +123,38 @@
 </div>
 
 <script>
-	/* const phoneNumberField = document.querySelector("#<portlet:namespace/>phoneNumber");
-	const phoneNumberInput = window.intlTelInput(
+
+	var phoneNumberField = document.querySelector("#<portlet:namespace/>phoneNumber");
+	var phoneNumberInput = window.intlTelInput(
 					phoneNumberField,
 					{
 						initialCountry : "us",
 						separateDialCode : true,
 						utilsScript : "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/utils.js",
-					}); */
-					
-			window.intlTelInput(
-					$("#<portlet:namespace/>phoneNumber"),
-					{
-						initialCountry : "en",
-						separateDialCode : true,
-						utilsScript : "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/utils.js",
 					});
 
 	$(".iti").addClass("w-100");
-	
-	function validateForm(contactUsForm){
+
+	function validateForm(contactUsForm) {
 		var liferayForm = Liferay.Form.get(contactUsForm);
-			if(liferayForm){
-			 var validator = liferayForm.formValidator;
-			 validator.validate();
-			 var hasErrors = validator.hasErrors();
-			 if(hasErrors){
-				 validator.focusInvalidField();
-				 return false;
-			 }
+		if (liferayForm) {
+			var validator = liferayForm.formValidator;
+			validator.validate();
+			var hasErrors = validator.hasErrors();
+			if (hasErrors) {
+				validator.focusInvalidField();
+				return false;
 			}
-			return true;
 		}
-	
-	function submitSendFileForm(){
-		if(validateForm('<portlet:namespace/>contactUsForm')){
-		   	AUI().use('aui-io-request','aui-base','io', function(A){
-			 var form = A.one("#<portlet:namespace/>contactUsForm");
-			 
-		        A.io.request('<%=addContactUsURL.toString()%>'), {
+		return true;
+	}
+
+	function submitSendFileForm() {
+		if (validateForm('<portlet:namespace/>contactUsForm')) {
+			AUI().use('aui-io-request', 'aui-base', 'io', function(A) {
+				var form = A.one("#<portlet:namespace/>contactUsForm");
+
+				A.io.request('<%=addContactUsURL.toString()%>'), {
 					method : 'post',
 					form : {
 						id : form

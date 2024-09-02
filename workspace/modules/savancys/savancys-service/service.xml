@@ -28,7 +28,8 @@
 		<column name="companyName" type="String" />
 		<column name="country" type="String" />
 		<column name="additionalInfo" type="String" />
-
+		<column name="fullname" type="String" />
+		
 		<!-- Order -->
 		<order by="asc">
 			<order-column name="contactId" />

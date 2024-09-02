@@ -72,7 +72,8 @@ public class ContactUsModelImpl
 		{"inquiryType", Types.VARCHAR}, {"firstName", Types.VARCHAR},
 		{"lastName", Types.VARCHAR}, {"phoneNumber", Types.VARCHAR},
 		{"email", Types.VARCHAR}, {"companyName", Types.VARCHAR},
-		{"country", Types.VARCHAR}, {"additionalInfo", Types.VARCHAR}
+		{"country", Types.VARCHAR}, {"additionalInfo", Types.VARCHAR},
+		{"fullname", Types.VARCHAR}
 	};
 
 	public static final Map<String, Integer> TABLE_COLUMNS_MAP =
@@ -95,10 +96,11 @@ public class ContactUsModelImpl
 		TABLE_COLUMNS_MAP.put("companyName", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("country", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("additionalInfo", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("fullname", Types.VARCHAR);
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table ContactUs (uuid_ VARCHAR(75) null,contactId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,inquiryType VARCHAR(75) null,firstName VARCHAR(75) null,lastName VARCHAR(75) null,phoneNumber VARCHAR(75) null,email VARCHAR(75) null,companyName VARCHAR(75) null,country VARCHAR(75) null,additionalInfo VARCHAR(75) null)";
+		"create table ContactUs (uuid_ VARCHAR(75) null,contactId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,inquiryType VARCHAR(75) null,firstName VARCHAR(75) null,lastName VARCHAR(75) null,phoneNumber VARCHAR(75) null,email VARCHAR(75) null,companyName VARCHAR(75) null,country VARCHAR(75) null,additionalInfo VARCHAR(500) null,fullname VARCHAR(200) null)";
 
 	public static final String TABLE_SQL_DROP = "drop table ContactUs";
 
@@ -268,6 +270,7 @@ public class ContactUsModelImpl
 			attributeGetterFunctions.put("country", ContactUs::getCountry);
 			attributeGetterFunctions.put(
 				"additionalInfo", ContactUs::getAdditionalInfo);
+			attributeGetterFunctions.put("fullname", ContactUs::getFullname);
 
 			_attributeGetterFunctions = Collections.unmodifiableMap(
 				attributeGetterFunctions);
@@ -328,6 +331,9 @@ public class ContactUsModelImpl
 			attributeSetterBiConsumers.put(
 				"additionalInfo",
 				(BiConsumer<ContactUs, String>)ContactUs::setAdditionalInfo);
+			attributeSetterBiConsumers.put(
+				"fullname",
+				(BiConsumer<ContactUs, String>)ContactUs::setFullname);
 
 			_attributeSetterBiConsumers = Collections.unmodifiableMap(
 				(Map)attributeSetterBiConsumers);
@@ -675,6 +681,26 @@ public class ContactUsModelImpl
 		_additionalInfo = additionalInfo;
 	}
 
+	@JSON
+	@Override
+	public String getFullname() {
+		if (_fullname == null) {
+			return "";
+		}
+		else {
+			return _fullname;
+		}
+	}
+
+	@Override
+	public void setFullname(String fullname) {
+		if (_columnOriginalValues == Collections.EMPTY_MAP) {
+			_setColumnOriginalValues();
+		}
+
+		_fullname = fullname;
+	}
+
 	@Override
 	public StagedModelType getStagedModelType() {
 		return new StagedModelType(
@@ -753,6 +779,7 @@ public class ContactUsModelImpl
 		contactUsImpl.setCompanyName(getCompanyName());
 		contactUsImpl.setCountry(getCountry());
 		contactUsImpl.setAdditionalInfo(getAdditionalInfo());
+		contactUsImpl.setFullname(getFullname());
 
 		contactUsImpl.resetOriginalValues();
 
@@ -791,6 +818,8 @@ public class ContactUsModelImpl
 			this.<String>getColumnOriginalValue("country"));
 		contactUsImpl.setAdditionalInfo(
 			this.<String>getColumnOriginalValue("additionalInfo"));
+		contactUsImpl.setFullname(
+			this.<String>getColumnOriginalValue("fullname"));
 
 		return contactUsImpl;
 	}
@@ -980,6 +1009,14 @@ public class ContactUsModelImpl
 			contactUsCacheModel.additionalInfo = null;
 		}
 
+		contactUsCacheModel.fullname = getFullname();
+
+		String fullname = contactUsCacheModel.fullname;
+
+		if ((fullname != null) && (fullname.length() == 0)) {
+			contactUsCacheModel.fullname = null;
+		}
+
 		return contactUsCacheModel;
 	}
 
@@ -1058,6 +1095,7 @@ public class ContactUsModelImpl
 	private String _companyName;
 	private String _country;
 	private String _additionalInfo;
+	private String _fullname;
 
 	public <T> T getColumnValue(String columnName) {
 		columnName = _attributeNames.getOrDefault(columnName, columnName);
@@ -1105,6 +1143,7 @@ public class ContactUsModelImpl
 		_columnOriginalValues.put("companyName", _companyName);
 		_columnOriginalValues.put("country", _country);
 		_columnOriginalValues.put("additionalInfo", _additionalInfo);
+		_columnOriginalValues.put("fullname", _fullname);
 	}
 
 	private static final Map<String, String> _attributeNames;
@@ -1159,6 +1198,8 @@ public class ContactUsModelImpl
 		columnBitmasks.put("country", 16384L);
 
 		columnBitmasks.put("additionalInfo", 32768L);
+
+		columnBitmasks.put("fullname", 65536L);
 
 		_columnBitmasks = Collections.unmodifiableMap(columnBitmasks);
 	}

@@ -46,4 +46,8 @@ public interface ContactUsService extends BaseService {
 	 */
 	public String getOSGiServiceIdentifier();
 
+	public String saveSapnexxContact(
+		String fullname, String phoneNumber, String email, String companyName,
+		String additionalInfo);
+
 }

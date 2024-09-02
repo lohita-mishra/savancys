@@ -345,6 +345,17 @@ public class ContactUsLocalServiceUtil {
 		return getService().getPersistedModel(primaryKeyObj);
 	}
 
+	public static ContactUs saveSapnexxContact(
+			String fullname, String phoneNumber, String email,
+			String companyName, String additionalInfo,
+			com.liferay.portal.kernel.theme.ThemeDisplay themeDisplay)
+		throws PortalException {
+
+		return getService().saveSapnexxContact(
+			fullname, phoneNumber, email, companyName, additionalInfo,
+			themeDisplay);
+	}
+
 	/**
 	 * Updates the contact us in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	 *

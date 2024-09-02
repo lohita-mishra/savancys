@@ -6,8 +6,12 @@
 package com.savancys.service.impl;
 
 import com.liferay.portal.aop.AopService;
+import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.security.auth.PrincipalThreadLocal;
+import com.liferay.portal.kernel.service.UserLocalServiceUtil;
+import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.savancys.model.ContactUs;
 import com.savancys.service.base.ContactUsLocalServiceBaseImpl;
 
@@ -38,6 +42,31 @@ public class ContactUsLocalServiceImpl extends ContactUsLocalServiceBaseImpl {
 		contactUs.setAdditionalInfo(additionalInfo);
 		contactUs = contactUsLocalService.addContactUs(contactUs);
 		log.info("local contactUs"+contactUs);
+		return contactUs;
+		
+	}
+	
+	public ContactUs saveSapnexxContact(String fullname,  String phoneNumber,String email,
+			String companyName,  String additionalInfo, ThemeDisplay themeDisplay) throws PortalException {
+		log.info("saveSapnexxContact service");
+		
+		long contactId = counterLocalService.increment(ContactUs.class.getName());
+		ContactUs contactUs = contactUsLocalService.createContactUs(contactId);
+//		ContactUs contactUs = contactUsLocalService.createContactUs(CounterLocalServiceUtil.increment());
+		
+		contactUs.setUserId(PrincipalThreadLocal.getUserId());
+		contactUs.setUserName(UserLocalServiceUtil.getUser(PrincipalThreadLocal.getUserId()).getFullName());
+		contactUs.setGroupId(themeDisplay.getScopeGroupId());
+		
+		
+		contactUs.setContactId(contactId);
+		contactUs.setFullname(fullname);
+		contactUs.setPhoneNumber(phoneNumber);
+		contactUs.setEmail(email);
+		contactUs.setCompanyName(companyName);
+		contactUs.setAdditionalInfo(additionalInfo);
+		
+		contactUs = contactUsLocalService.addContactUs(contactUs);
 		return contactUs;
 		
 	}

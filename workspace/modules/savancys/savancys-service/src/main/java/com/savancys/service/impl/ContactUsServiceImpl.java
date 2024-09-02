@@ -22,4 +22,9 @@ import org.osgi.service.component.annotations.Component;
 	service = AopService.class
 )
 public class ContactUsServiceImpl extends ContactUsServiceBaseImpl {
+	public String saveSapnexxContact(String fullname, String phoneNumber, String email, String companyName,
+			String additionalInfo) {
+//		return contactUsLocalService.saveSapnexxContact(fullname, phoneNumber, email, companyName, additionalInfo);
+		return "saveSapnexxContact";
+	}
 }

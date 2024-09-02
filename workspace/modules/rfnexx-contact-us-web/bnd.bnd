@@ -1,0 +1,4 @@
+Bundle-Name: rfnexx-contact-us-web
+Bundle-SymbolicName: com.rfnexx.contact.us.web
+Bundle-Version: 1.0.0
+Export-Package: com.rfnexx.contact.us.web.constants

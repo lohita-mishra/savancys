@@ -315,6 +315,21 @@ public interface ContactUsModel
 	 */
 	public void setAdditionalInfo(String additionalInfo);
 
+	/**
+	 * Returns the fullname of this contact us.
+	 *
+	 * @return the fullname of this contact us
+	 */
+	@AutoEscape
+	public String getFullname();
+
+	/**
+	 * Sets the fullname of this contact us.
+	 *
+	 * @param fullname the fullname of this contact us
+	 */
+	public void setFullname(String fullname);
+
 	@Override
 	public ContactUs cloneWithOriginalValues();
 

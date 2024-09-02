@@ -386,6 +386,18 @@ public class ContactUsLocalServiceWrapper
 		return _contactUsLocalService.getPersistedModel(primaryKeyObj);
 	}
 
+	@Override
+	public com.savancys.model.ContactUs saveSapnexxContact(
+			String fullname, String phoneNumber, String email,
+			String companyName, String additionalInfo,
+			com.liferay.portal.kernel.theme.ThemeDisplay themeDisplay)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _contactUsLocalService.saveSapnexxContact(
+			fullname, phoneNumber, email, companyName, additionalInfo,
+			themeDisplay);
+	}
+
 	/**
 	 * Updates the contact us in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	 *

@@ -50,6 +50,7 @@ public class ContactUsWrapper
 		attributes.put("companyName", getCompanyName());
 		attributes.put("country", getCountry());
 		attributes.put("additionalInfo", getAdditionalInfo());
+		attributes.put("fullname", getFullname());
 
 		return attributes;
 	}
@@ -151,6 +152,12 @@ public class ContactUsWrapper
 		if (additionalInfo != null) {
 			setAdditionalInfo(additionalInfo);
 		}
+
+		String fullname = (String)attributes.get("fullname");
+
+		if (fullname != null) {
+			setFullname(fullname);
+		}
 	}
 
 	@Override
@@ -236,6 +243,16 @@ public class ContactUsWrapper
 	@Override
 	public String getFirstName() {
 		return model.getFirstName();
+	}
+
+	/**
+	 * Returns the fullname of this contact us.
+	 *
+	 * @return the fullname of this contact us
+	 */
+	@Override
+	public String getFullname() {
+		return model.getFullname();
 	}
 
 	/**
@@ -421,6 +438,16 @@ public class ContactUsWrapper
 	@Override
 	public void setFirstName(String firstName) {
 		model.setFirstName(firstName);
+	}
+
+	/**
+	 * Sets the fullname of this contact us.
+	 *
+	 * @param fullname the fullname of this contact us
+	 */
+	@Override
+	public void setFullname(String fullname) {
+		model.setFullname(fullname);
 	}
 
 	/**

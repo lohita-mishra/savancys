@@ -1,7 +1,7 @@
 <footer class="site_footer">
 
 	<div class="container">
-		<div class="row m-0 mb-5">
+		<div class="row m-0 mb-3">
 			<div class="footer-widget intro d-flex flex-column">
 				<@liferay_portlet["runtime"]
 			        defaultPreferences="${journalArticlePreferences}"
