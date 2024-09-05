@@ -14,9 +14,7 @@
 }
 </style>
 <div class="container box my-3 p-3">
-	<div>
-		<h2 class="text-center text-yellow-orange mb-3">Current Openings</h2>
-	</div>
+	
 
 	<c:forEach items="${allPosts}" var="jobPost">
 		<portlet:renderURL var="applyJobURL">

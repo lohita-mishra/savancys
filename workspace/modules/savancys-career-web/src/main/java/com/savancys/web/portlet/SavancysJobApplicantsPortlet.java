@@ -11,7 +11,6 @@ import com.savancys.service.JobApplicantLocalService;
 import com.savancys.service.JobApplicantLocalServiceUtil;
 import com.savancys.service.JobPostLocalService;
 import com.savancys.web.constants.SavancysCareerWebPortletKeys;
-import com.savancys.web.util.StatusUtil;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -29,7 +28,7 @@ import javax.portlet.RenderResponse;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
-@Component(immediate = true, property = { "com.liferay.portlet.display-category=category.hidden",
+@Component(immediate = true, property = { "com.liferay.portlet.display-category=savancys",
 		"com.liferay.portlet.header-portlet-css=/css/main.css", "com.liferay.portlet.instanceable=true",
 		"javax.portlet.display-name=SavancysJobApplicantsWeb", "javax.portlet.init-param.template-path=/",
 		"javax.portlet.init-param.view-template=/job_applicant/job_applicants_details.jsp",
@@ -72,8 +71,6 @@ public class SavancysJobApplicantsPortlet extends MVCPortlet {
 		} catch (Exception e) {
 			log.error("Error fetching job applicants: " + e.getMessage());
 		}
-		List<StatusUtil> allStatus = StatusUtil.getAllStatus();
-		renderRequest.setAttribute("allStatus", allStatus);
 		renderRequest.setAttribute("activeJobPosts", activeJobPosts);
 		renderRequest.setAttribute("jobApplicantlist", jobApplicantList);
 		renderRequest.setAttribute("listSize", listSize);

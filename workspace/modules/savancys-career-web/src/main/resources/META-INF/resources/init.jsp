@@ -21,7 +21,6 @@ taglib
 <%@ taglib uri="http://liferay.com/tld/clay" prefix="clay" %>
 <%@page import="com.savancys.service.JobPostLocalServiceUtil"%>
 <%@page import="com.savancys.model.JobApplicantDTO"%>
-<%@page import="com.savancys.web.util.StatusUtil"%>
 <%@page import="com.savancys.model.JobApplicant"%>
 
 <portlet:defineObjects />

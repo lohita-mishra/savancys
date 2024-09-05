@@ -82,7 +82,7 @@ public class JobApplicantLocalServiceImpl extends JobApplicantLocalServiceBaseIm
 		dynamicQuery.addOrder(OrderFactoryUtil.desc("createDate"));
 
 		List<JobApplicant> jobApplicants = jobApplicantLocalService.dynamicQuery(dynamicQuery);
-		log.info("method executed" + jobApplicants.size());
+		log.info("jobApplicants List -" + jobApplicants.size());
 		return jobApplicants;
 	}
 

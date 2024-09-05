@@ -1,12 +1,11 @@
 <%@ include file="init.jsp"%>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/css/intlTelInput.css">
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/intlTelInput.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<%-- 
-<portlet:actionURL name="addContactUs" var="actionURL" /> --%>
 
 <portlet:resourceURL id="addContactUs" var="addContactUsURL" />
 
@@ -48,7 +47,7 @@
 
 		<div class="col-md-5 contact-us-form ml-4">
 			<div class="container mt-4">
-				<aui:form action="#" method="post" name="contactUsForm">
+				<aui:form name="contactUsForm" id="contactUsForm">
 					<div class="row">
 						<div class="col-md-12">
 							<aui:select name="inquiryType" label="Inquiry Type"
@@ -114,7 +113,7 @@
 
 						</div>
 					</div>
-					<aui:button type="submit" cssClass="submit-btn"
+					<aui:button type="submit" cssClass="submit-btn" onclick='submitContactUsForm()'
 						value="Request a callback" />
 				</aui:form>
 			</div>
@@ -149,29 +148,27 @@
 		return true;
 	}
 
-	function submitSendFileForm() {
+	function submitContactUsForm() {
+		console.log("submitSendFileForm");
+
 		if (validateForm('<portlet:namespace/>contactUsForm')) {
-			AUI().use('aui-io-request', 'aui-base', 'io', function(A) {
-				var form = A.one("#<portlet:namespace/>contactUsForm");
+			var formData = $("#<portlet:namespace/>contactUsForm").serialize();
 
-				A.io.request('<%=addContactUsURL.toString()%>'), {
-					method : 'post',
-					form : {
-						id : form
-					},
-					on : {
-						success : function() {
-							swal({
-								text : this.get('responseData'),
-							})
-							setTimeout(pageReload, 1500);
-						}
-					}
-		        }
+			$.ajax({
+				url: '<%= addContactUsURL.toString() %>',
+				method: 'POST',
+				data: formData,
+				success: function(response) {
+					console.log("success");
+				}
+				
 			});
-
 		} else {
 			return false;
 		}
+	}
+
+	function pageReload() {
+		location.reload(); 
 	}
 </script>

@@ -4,12 +4,19 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 import com.liferay.portal.kernel.util.ParamUtil;
+import com.savancys.contactus.web.commands.AddContactResourceCommand;
 import com.savancys.contactus.web.constants.SavancysContactUsPortletKeys;
 import com.savancys.service.ContactUsLocalService;
+
+import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.Portlet;
+import javax.portlet.PortletException;
+import javax.portlet.ResourceRequest;
+import javax.portlet.ResourceResponse;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -25,7 +32,11 @@ import org.osgi.service.component.annotations.Reference;
 		"javax.portlet.resource-bundle=content.Language",
 		"javax.portlet.security-role-ref=power-user,user" }, service = Portlet.class)
 public class SavancysContactUsPortlet extends MVCPortlet {
+	
+	private Log log = LogFactoryUtil.getLog(SavancysContactUsPortlet.class);
 
+	@Reference
+	private ContactUsLocalService contactUsLocalService;
 	/*
 	 * private Log log = LogFactoryUtil.getLog(SavancysContactUsPortlet.class);
 	 * 
@@ -52,4 +63,5 @@ public class SavancysContactUsPortlet extends MVCPortlet {
 	 * 
 	 * log.info("added"); }
 	 */
+	
 }
