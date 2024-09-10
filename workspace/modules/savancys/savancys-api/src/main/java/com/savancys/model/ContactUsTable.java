@@ -57,6 +57,12 @@ public class ContactUsTable extends BaseTable<ContactUsTable> {
 		"additionalInfo", String.class, Types.VARCHAR, Column.FLAG_DEFAULT);
 	public final Column<ContactUsTable, String> fullname = createColumn(
 		"fullname", String.class, Types.VARCHAR, Column.FLAG_DEFAULT);
+	public final Column<ContactUsTable, String> street = createColumn(
+		"street", String.class, Types.VARCHAR, Column.FLAG_DEFAULT);
+	public final Column<ContactUsTable, String> city = createColumn(
+		"city", String.class, Types.VARCHAR, Column.FLAG_DEFAULT);
+	public final Column<ContactUsTable, String> postcode = createColumn(
+		"postcode", String.class, Types.VARCHAR, Column.FLAG_DEFAULT);
 
 	private ContactUsTable() {
 		super("ContactUs", ContactUsTable::new);

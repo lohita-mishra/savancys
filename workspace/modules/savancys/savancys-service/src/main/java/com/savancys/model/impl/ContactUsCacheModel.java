@@ -53,7 +53,7 @@ public class ContactUsCacheModel
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(35);
+		StringBundler sb = new StringBundler(41);
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -89,6 +89,12 @@ public class ContactUsCacheModel
 		sb.append(additionalInfo);
 		sb.append(", fullname=");
 		sb.append(fullname);
+		sb.append(", street=");
+		sb.append(street);
+		sb.append(", city=");
+		sb.append(city);
+		sb.append(", postcode=");
+		sb.append(postcode);
 		sb.append("}");
 
 		return sb.toString();
@@ -194,6 +200,27 @@ public class ContactUsCacheModel
 			contactUsImpl.setFullname(fullname);
 		}
 
+		if (street == null) {
+			contactUsImpl.setStreet("");
+		}
+		else {
+			contactUsImpl.setStreet(street);
+		}
+
+		if (city == null) {
+			contactUsImpl.setCity("");
+		}
+		else {
+			contactUsImpl.setCity(city);
+		}
+
+		if (postcode == null) {
+			contactUsImpl.setPostcode("");
+		}
+		else {
+			contactUsImpl.setPostcode(postcode);
+		}
+
 		contactUsImpl.resetOriginalValues();
 
 		return contactUsImpl;
@@ -222,6 +249,9 @@ public class ContactUsCacheModel
 		country = objectInput.readUTF();
 		additionalInfo = objectInput.readUTF();
 		fullname = objectInput.readUTF();
+		street = objectInput.readUTF();
+		city = objectInput.readUTF();
+		postcode = objectInput.readUTF();
 	}
 
 	@Override
@@ -313,6 +343,27 @@ public class ContactUsCacheModel
 		else {
 			objectOutput.writeUTF(fullname);
 		}
+
+		if (street == null) {
+			objectOutput.writeUTF("");
+		}
+		else {
+			objectOutput.writeUTF(street);
+		}
+
+		if (city == null) {
+			objectOutput.writeUTF("");
+		}
+		else {
+			objectOutput.writeUTF(city);
+		}
+
+		if (postcode == null) {
+			objectOutput.writeUTF("");
+		}
+		else {
+			objectOutput.writeUTF(postcode);
+		}
 	}
 
 	public String uuid;
@@ -332,5 +383,8 @@ public class ContactUsCacheModel
 	public String country;
 	public String additionalInfo;
 	public String fullname;
+	public String street;
+	public String city;
+	public String postcode;
 
 }

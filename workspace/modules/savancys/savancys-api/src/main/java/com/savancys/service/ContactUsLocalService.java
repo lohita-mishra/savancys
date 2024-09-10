@@ -303,6 +303,12 @@ public interface ContactUsLocalService
 	public PersistedModel getPersistedModel(Serializable primaryKeyObj)
 		throws PortalException;
 
+	public ContactUs saveRFNEXxContact(
+			String fullname, String street, String city, String postcode,
+			String phoneNumber, String email, String additionalInfo,
+			ThemeDisplay themeDisplay)
+		throws PortalException;
+
 	public ContactUs saveSapnexxContact(
 			String fullname, String phoneNumber, String email,
 			String companyName, String additionalInfo,

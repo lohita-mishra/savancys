@@ -41,3 +41,10 @@ $(window).on("load", function() {
     $("header").css("margin-top", padTop);
     $("#smooth-wrapper").css("top", padTop);
 }}*/
+
+
+$(document).ready(function () {
+    $(".fade-up").attr("data-aos", "fade-up");
+	$(".fade-left").attr("data-aos", "fade-left");
+	$(".fade-right").attr("data-aos", "fade-right");
+});

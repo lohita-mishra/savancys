@@ -330,6 +330,51 @@ public interface ContactUsModel
 	 */
 	public void setFullname(String fullname);
 
+	/**
+	 * Returns the street of this contact us.
+	 *
+	 * @return the street of this contact us
+	 */
+	@AutoEscape
+	public String getStreet();
+
+	/**
+	 * Sets the street of this contact us.
+	 *
+	 * @param street the street of this contact us
+	 */
+	public void setStreet(String street);
+
+	/**
+	 * Returns the city of this contact us.
+	 *
+	 * @return the city of this contact us
+	 */
+	@AutoEscape
+	public String getCity();
+
+	/**
+	 * Sets the city of this contact us.
+	 *
+	 * @param city the city of this contact us
+	 */
+	public void setCity(String city);
+
+	/**
+	 * Returns the postcode of this contact us.
+	 *
+	 * @return the postcode of this contact us
+	 */
+	@AutoEscape
+	public String getPostcode();
+
+	/**
+	 * Sets the postcode of this contact us.
+	 *
+	 * @param postcode the postcode of this contact us
+	 */
+	public void setPostcode(String postcode);
+
 	@Override
 	public ContactUs cloneWithOriginalValues();
 

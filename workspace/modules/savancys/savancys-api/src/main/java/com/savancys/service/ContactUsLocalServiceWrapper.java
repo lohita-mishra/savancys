@@ -387,6 +387,18 @@ public class ContactUsLocalServiceWrapper
 	}
 
 	@Override
+	public com.savancys.model.ContactUs saveRFNEXxContact(
+			String fullname, String street, String city, String postcode,
+			String phoneNumber, String email, String additionalInfo,
+			com.liferay.portal.kernel.theme.ThemeDisplay themeDisplay)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _contactUsLocalService.saveRFNEXxContact(
+			fullname, street, city, postcode, phoneNumber, email,
+			additionalInfo, themeDisplay);
+	}
+
+	@Override
 	public com.savancys.model.ContactUs saveSapnexxContact(
 			String fullname, String phoneNumber, String email,
 			String companyName, String additionalInfo,

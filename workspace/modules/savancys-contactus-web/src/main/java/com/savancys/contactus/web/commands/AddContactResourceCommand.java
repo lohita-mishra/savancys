@@ -4,11 +4,14 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCResourceCommand;
 import com.liferay.portal.kernel.util.ParamUtil;
+import com.sapnexx.common.validator.util.InputValidator;
 import com.savancys.contactus.web.constants.SavancysContactUsPortletKeys;
 import com.savancys.service.ContactUsLocalService;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.portlet.PortletException;
 import javax.portlet.ResourceRequest;
@@ -38,17 +41,13 @@ public class AddContactResourceCommand implements MVCResourceCommand {
 		String companyName = ParamUtil.getString(resourceRequest, "companyName");
 		String country = ParamUtil.getString(resourceRequest, "country");
 		String additionalInfo = ParamUtil.getString(resourceRequest, "additionalInfo");
-
-		log.info(" -inquiryType-- " + inquiryType + "-firstName-- " + firstName + "-lastName-- " + lastName
-				+ "-phoneNumber-- " + phoneNumber + "-email-- " + email + "-companyName-- " + companyName
-				+ "-country-- " + country + "-additionalInfo-- " + additionalInfo);
 		resourceResponse.setContentType("text/html");
 		PrintWriter out;
 		try {
 			contactUsLocalService.addContact(inquiryType, firstName, lastName, phoneNumber, email, companyName, country,
 					additionalInfo);
 			out = resourceResponse.getWriter();
-			out.println("File send successfully");
+			out.println("successfully submitted.");
 		} catch (IOException e) {
 			log.error(e.getMessage());
 		}
@@ -57,4 +56,40 @@ public class AddContactResourceCommand implements MVCResourceCommand {
 
 		return false;
 	}
+	/*
+	 * // Method to validate input fields private Map<String, String>
+	 * validateFields(String firstName, String lastName, String phoneNumber, String
+	 * email, String country, String additionalInfo) { Map<String, String> errors =
+	 * new HashMap<>();
+	 * 
+	 * // Check if each field is required and valid if
+	 * (!InputValidator.isFieldRequired(firstName)) {
+	 * errors.put("required-firstName", "First name is required"); } else if
+	 * (!InputValidator.isValidText(firstName)) { errors.put("invalid-firstName",
+	 * "First name is invalid"); }
+	 * 
+	 * if (!InputValidator.isFieldRequired(lastName)) {
+	 * errors.put("required-lastName", "Last name is required"); } else if
+	 * (!InputValidator.isValidText(lastName)) { errors.put("invalid-lastName",
+	 * "Last name is invalid"); }
+	 * 
+	 * if (!InputValidator.isFieldRequired(phoneNumber)) {
+	 * errors.put("required-phoneNumber", "Phone number is required"); } else if
+	 * (!InputValidator.isValidGlobalPhoneNumber(phoneNumber)) {
+	 * errors.put("invalid-phoneNumber", "Phone number is invalid"); }
+	 * 
+	 * if (!InputValidator.isFieldRequired(email)) { errors.put("required-email",
+	 * "Email is required"); } else if (!InputValidator.isValidEmail(email)) {
+	 * errors.put("invalid-email", "Email is invalid"); }
+	 * 
+	 * if (!InputValidator.isFieldRequired(country)) {
+	 * errors.put("required-country", "Country is required"); } else if
+	 * (!InputValidator.isValidText(country)) { errors.put("invalid-country",
+	 * "Country is invalid"); }
+	 * 
+	 * if (!InputValidator.isValidTextArea(additionalInfo)) {
+	 * errors.put("invalid-additionalInfo", "Additional info is invalid"); }
+	 * 
+	 * return errors; }
+	 */
 }

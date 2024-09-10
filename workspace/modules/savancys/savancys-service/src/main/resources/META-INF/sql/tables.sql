@@ -15,7 +15,10 @@ create table ContactUs (
 	companyName VARCHAR(75) null,
 	country VARCHAR(75) null,
 	additionalInfo VARCHAR(500) null,
-	fullname VARCHAR(200) null
+	fullname VARCHAR(200) null,
+	street VARCHAR(200) null,
+	city VARCHAR(75) null,
+	postcode VARCHAR(75) null
 );
 
 create table JobApplicant (

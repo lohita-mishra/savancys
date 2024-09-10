@@ -51,6 +51,9 @@ public class ContactUsWrapper
 		attributes.put("country", getCountry());
 		attributes.put("additionalInfo", getAdditionalInfo());
 		attributes.put("fullname", getFullname());
+		attributes.put("street", getStreet());
+		attributes.put("city", getCity());
+		attributes.put("postcode", getPostcode());
 
 		return attributes;
 	}
@@ -158,6 +161,24 @@ public class ContactUsWrapper
 		if (fullname != null) {
 			setFullname(fullname);
 		}
+
+		String street = (String)attributes.get("street");
+
+		if (street != null) {
+			setStreet(street);
+		}
+
+		String city = (String)attributes.get("city");
+
+		if (city != null) {
+			setCity(city);
+		}
+
+		String postcode = (String)attributes.get("postcode");
+
+		if (postcode != null) {
+			setPostcode(postcode);
+		}
 	}
 
 	@Override
@@ -173,6 +194,16 @@ public class ContactUsWrapper
 	@Override
 	public String getAdditionalInfo() {
 		return model.getAdditionalInfo();
+	}
+
+	/**
+	 * Returns the city of this contact us.
+	 *
+	 * @return the city of this contact us
+	 */
+	@Override
+	public String getCity() {
+		return model.getCity();
 	}
 
 	/**
@@ -306,6 +337,16 @@ public class ContactUsWrapper
 	}
 
 	/**
+	 * Returns the postcode of this contact us.
+	 *
+	 * @return the postcode of this contact us
+	 */
+	@Override
+	public String getPostcode() {
+		return model.getPostcode();
+	}
+
+	/**
 	 * Returns the primary key of this contact us.
 	 *
 	 * @return the primary key of this contact us
@@ -313,6 +354,16 @@ public class ContactUsWrapper
 	@Override
 	public long getPrimaryKey() {
 		return model.getPrimaryKey();
+	}
+
+	/**
+	 * Returns the street of this contact us.
+	 *
+	 * @return the street of this contact us
+	 */
+	@Override
+	public String getStreet() {
+		return model.getStreet();
 	}
 
 	/**
@@ -368,6 +419,16 @@ public class ContactUsWrapper
 	@Override
 	public void setAdditionalInfo(String additionalInfo) {
 		model.setAdditionalInfo(additionalInfo);
+	}
+
+	/**
+	 * Sets the city of this contact us.
+	 *
+	 * @param city the city of this contact us
+	 */
+	@Override
+	public void setCity(String city) {
+		model.setCity(city);
 	}
 
 	/**
@@ -501,6 +562,16 @@ public class ContactUsWrapper
 	}
 
 	/**
+	 * Sets the postcode of this contact us.
+	 *
+	 * @param postcode the postcode of this contact us
+	 */
+	@Override
+	public void setPostcode(String postcode) {
+		model.setPostcode(postcode);
+	}
+
+	/**
 	 * Sets the primary key of this contact us.
 	 *
 	 * @param primaryKey the primary key of this contact us
@@ -508,6 +579,16 @@ public class ContactUsWrapper
 	@Override
 	public void setPrimaryKey(long primaryKey) {
 		model.setPrimaryKey(primaryKey);
+	}
+
+	/**
+	 * Sets the street of this contact us.
+	 *
+	 * @param street the street of this contact us
+	 */
+	@Override
+	public void setStreet(String street) {
+		model.setStreet(street);
 	}
 
 	/**

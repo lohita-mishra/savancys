@@ -1,7 +1,7 @@
 <%@ include file="init.jsp"%>
 
 <style>
-.rfnexxForm{
+.requestDemoForm{
     background-color: var(--bg-white) !important;
     padding:0px !important;
     input, textarea {
@@ -22,9 +22,9 @@
 
 </style>
 
-<portlet:resourceURL var="varSaveRfnexx" id='SaveRfnexx'></portlet:resourceURL>
+<portlet:resourceURL var="requestDemoFormURL" id='requestFormDemo'></portlet:resourceURL>
 
-<aui:form cssClass="w-100 d-flex flex-column align-items-start justify-content-center rfnexxForm" name="rfnexxForm" id="rfnexxForm" autocomplete="off">
+<aui:form cssClass="w-100 d-flex flex-column align-items-start justify-content-center requestDemoForm" name="requestDemoForm" id="requestDemoForm" autocomplete="off">
     <div class="row m-0 w-100">
         <div class="col-12 col-sm-6 col-md-12 col-lg-12 mb-4 p-0">
             <aui:input type="text" name="fullname" id="fullname" placeholder="Contact Name" label="">
@@ -74,37 +74,9 @@
 </aui:form>
 
 <script>
-/* function validateAndSubmit() {
-    const namePattern = /^[a-zA-Z\s]+$/;
-    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-    const fullname = document.getElementById('fullname').value;
-    const email = document.getElementById('email').value;
-
-    if (!namePattern.test(fullname)) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Invalid Name',
-            text: 'Please enter a valid name. Only letters and spaces are allowed.',
-        });
-        return;
-    }
-
-    if (!emailPattern.test(email)) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Invalid Email',
-            text: 'Please enter a valid email address.',
-        });
-        return;
-    }
-
-    ajaxCall();
-} */
-
-
-function validateForm(rfnexxForm) {
-	var liferayForm = Liferay.Form.get(rfnexxForm);
+function validateForm(requestDemoForm) {
+	var liferayForm = Liferay.Form.get(requestDemoForm);
 	if (liferayForm) {
 		var validator = liferayForm.formValidator;
 		validator.validate();
@@ -118,21 +90,14 @@ function validateForm(rfnexxForm) {
 }
 
 function ajaxCall() {
-	if (validateForm('<portlet:namespace/>rfnexxForm')) {
+	if (validateForm('<portlet:namespace/>requestDemoForm')) {
 	    AUI().use('aui-base', 'io', 'aui-io-request', function(A) {
-	        A.io.request('${varSaveRfnexx}', {
+	        A.io.request('${requestDemoFormURL}', {
 	            method: 'post',
-	            form: { id: '<portlet:namespace />rfnexxForm' },
+	            form: { id: '<portlet:namespace />requestDemoForm' },
 	            on: {
 	                success: function(event, id) {
 	                	console.log(submitted);
-	                    /* Swal.fire({
-	                        icon: 'success',
-	                        title: 'Success',
-	                        text: 'Your form has been successfully submitted!',
-	                    }).then(() => {
-	                        location.reload(); 
-	                    }); */
 	                },
 	                end: function(event, id) {
 	                    console.log("else part...");

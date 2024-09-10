@@ -345,6 +345,17 @@ public class ContactUsLocalServiceUtil {
 		return getService().getPersistedModel(primaryKeyObj);
 	}
 
+	public static ContactUs saveRFNEXxContact(
+			String fullname, String street, String city, String postcode,
+			String phoneNumber, String email, String additionalInfo,
+			com.liferay.portal.kernel.theme.ThemeDisplay themeDisplay)
+		throws PortalException {
+
+		return getService().saveRFNEXxContact(
+			fullname, street, city, postcode, phoneNumber, email,
+			additionalInfo, themeDisplay);
+	}
+
 	public static ContactUs saveSapnexxContact(
 			String fullname, String phoneNumber, String email,
 			String companyName, String additionalInfo,

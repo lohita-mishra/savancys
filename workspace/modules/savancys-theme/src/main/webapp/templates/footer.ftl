@@ -22,10 +22,8 @@
 	<div class="copyright">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-sm-6 d-flex justify-content-start mb-3 mb-md-0">
+                <div class="col-12 d-flex justify-content-start mb-3 mb-md-0">
                     <p class="copyright-text mb-0 text-white">&copy; 2024 Savancys. All Rights Reserved</p>
-                </div>
-                <div class="col-12 col-sm-6 d-flex justify-content-md-end justify-content-start">
 	            	<#assign preferencesMap={"displayDepth": "1", "portletSetupPortletDecoratorId": "barebone"} />
 	    			<@liferay.navigation_menu default_preferences=freeMarkerPortletPreferences.getPreferences(preferencesMap) instance_id="footer_right_nav" />
                 </div>

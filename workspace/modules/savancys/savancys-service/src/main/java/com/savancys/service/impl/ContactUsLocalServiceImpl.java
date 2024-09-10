@@ -20,14 +20,11 @@ import org.osgi.service.component.annotations.Component;
 /**
  * @author Brian Wing Shun Chan
  */
-@Component(
-	property = "model.class.name=com.savancys.model.ContactUs",
-	service = AopService.class
-)
+@Component(property = "model.class.name=com.savancys.model.ContactUs", service = AopService.class)
 public class ContactUsLocalServiceImpl extends ContactUsLocalServiceBaseImpl {
-	private Log log = LogFactoryUtil.getLog(ContactUsLocalServiceImpl.class); 
-	
-	public ContactUs addContact(String inquiryType, String firstName, String lastName, String phoneNumber,String email,
+	private Log log = LogFactoryUtil.getLog(ContactUsLocalServiceImpl.class);
+
+	public ContactUs addContact(String inquiryType, String firstName, String lastName, String phoneNumber, String email,
 			String companyName, String country, String additionalInfo) {
 		log.info("local");
 		long contactId = counterLocalService.increment(ContactUs.class.getName());
@@ -41,33 +38,54 @@ public class ContactUsLocalServiceImpl extends ContactUsLocalServiceBaseImpl {
 		contactUs.setCountry(country);
 		contactUs.setAdditionalInfo(additionalInfo);
 		contactUs = contactUsLocalService.addContactUs(contactUs);
-		log.info("local contactUs"+contactUs);
+		log.info("local contactUs" + contactUs);
 		return contactUs;
-		
+
 	}
-	
-	public ContactUs saveSapnexxContact(String fullname,  String phoneNumber,String email,
-			String companyName,  String additionalInfo, ThemeDisplay themeDisplay) throws PortalException {
+
+	public ContactUs saveSapnexxContact(String fullname, String phoneNumber, String email, String companyName,
+			String additionalInfo, ThemeDisplay themeDisplay) throws PortalException {
 		log.info("saveSapnexxContact service");
-		
+
 		long contactId = counterLocalService.increment(ContactUs.class.getName());
 		ContactUs contactUs = contactUsLocalService.createContactUs(contactId);
-//		ContactUs contactUs = contactUsLocalService.createContactUs(CounterLocalServiceUtil.increment());
-		
 		contactUs.setUserId(PrincipalThreadLocal.getUserId());
 		contactUs.setUserName(UserLocalServiceUtil.getUser(PrincipalThreadLocal.getUserId()).getFullName());
 		contactUs.setGroupId(themeDisplay.getScopeGroupId());
-		
-		
+
 		contactUs.setContactId(contactId);
 		contactUs.setFullname(fullname);
 		contactUs.setPhoneNumber(phoneNumber);
 		contactUs.setEmail(email);
 		contactUs.setCompanyName(companyName);
 		contactUs.setAdditionalInfo(additionalInfo);
-		
+
 		contactUs = contactUsLocalService.addContactUs(contactUs);
 		return contactUs;
-		
+
+	}
+
+	public ContactUs saveRFNEXxContact(String fullname, String street, String city, String postcode, String phoneNumber,
+			String email, String additionalInfo, ThemeDisplay themeDisplay) throws PortalException {
+		log.info("saveSapnexxContact service");
+
+		long contactId = counterLocalService.increment(ContactUs.class.getName());
+		ContactUs contactUs = contactUsLocalService.createContactUs(contactId);
+		contactUs.setUserId(PrincipalThreadLocal.getUserId());
+		contactUs.setUserName(UserLocalServiceUtil.getUser(PrincipalThreadLocal.getUserId()).getFullName());
+		contactUs.setGroupId(themeDisplay.getScopeGroupId());
+
+		contactUs.setContactId(contactId);
+		contactUs.setFullname(fullname);
+		contactUs.setStreet(street);
+		contactUs.setCity(city);
+		contactUs.setPostcode(postcode);
+		contactUs.setPhoneNumber(phoneNumber);
+		contactUs.setEmail(email);
+		contactUs.setAdditionalInfo(additionalInfo);
+
+		contactUs = contactUsLocalService.addContactUs(contactUs);
+		return contactUs;
+
 	}
 }

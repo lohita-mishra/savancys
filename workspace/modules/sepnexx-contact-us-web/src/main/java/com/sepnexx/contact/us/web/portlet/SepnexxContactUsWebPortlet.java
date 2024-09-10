@@ -57,7 +57,7 @@ public class SepnexxContactUsWebPortlet extends MVCPortlet {
 
 		ThemeDisplay themeDisplay = (ThemeDisplay) req.getAttribute(WebKeys.THEME_DISPLAY);
 		
-		if((!InputValidator.isValidText(fullname)) || (!InputValidator.isValidPhoneNumber(phoneNumber)) || !InputValidator.isValidEmail(email) ||!InputValidator.isValidCompanyName(companyName)){
+		if((!InputValidator.isValidText(fullname)) || (!InputValidator.isValidPhoneNumber(phoneNumber)) || !InputValidator.isValidEmail(email) ||!InputValidator.isValidText(companyName)){
 			SessionErrors.add((PortletRequest) req, "invalid-name");
 			SessionErrors.add((PortletRequest) req, "invalid-mobile");
 			SessionErrors.add((PortletRequest) req, "invalid-email");

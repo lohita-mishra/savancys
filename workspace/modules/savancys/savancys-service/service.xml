@@ -29,6 +29,9 @@
 		<column name="country" type="String" />
 		<column name="additionalInfo" type="String" />
 		<column name="fullname" type="String" />
+		<column name="street" type="String" />
+		<column name="city" type="String" />
+		<column name="postcode" type="String" />
 		
 		<!-- Order -->
 		<order by="asc">
@@ -64,7 +67,6 @@
 		<column name="skill" type="String" />
 		<column name="webAuthorization" type="String" />
 		
-
 		<!-- Order -->
 		<order by="desc">
 			<order-column name="createDate" />

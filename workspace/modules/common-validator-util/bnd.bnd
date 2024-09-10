@@ -2,3 +2,4 @@ Bundle-Name: common-validator-util
 Bundle-SymbolicName: com.sapnexx.common.validator.util
 Bundle-Version: 1.0.0
 
+Export-Package: com.sapnexx.common.validator.util

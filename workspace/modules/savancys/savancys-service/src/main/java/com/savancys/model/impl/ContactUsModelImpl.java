@@ -73,7 +73,8 @@ public class ContactUsModelImpl
 		{"lastName", Types.VARCHAR}, {"phoneNumber", Types.VARCHAR},
 		{"email", Types.VARCHAR}, {"companyName", Types.VARCHAR},
 		{"country", Types.VARCHAR}, {"additionalInfo", Types.VARCHAR},
-		{"fullname", Types.VARCHAR}
+		{"fullname", Types.VARCHAR}, {"street", Types.VARCHAR},
+		{"city", Types.VARCHAR}, {"postcode", Types.VARCHAR}
 	};
 
 	public static final Map<String, Integer> TABLE_COLUMNS_MAP =
@@ -97,10 +98,13 @@ public class ContactUsModelImpl
 		TABLE_COLUMNS_MAP.put("country", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("additionalInfo", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("fullname", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("street", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("city", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("postcode", Types.VARCHAR);
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table ContactUs (uuid_ VARCHAR(75) null,contactId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,inquiryType VARCHAR(75) null,firstName VARCHAR(75) null,lastName VARCHAR(75) null,phoneNumber VARCHAR(75) null,email VARCHAR(75) null,companyName VARCHAR(75) null,country VARCHAR(75) null,additionalInfo VARCHAR(500) null,fullname VARCHAR(200) null)";
+		"create table ContactUs (uuid_ VARCHAR(75) null,contactId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,inquiryType VARCHAR(75) null,firstName VARCHAR(75) null,lastName VARCHAR(75) null,phoneNumber VARCHAR(75) null,email VARCHAR(75) null,companyName VARCHAR(75) null,country VARCHAR(75) null,additionalInfo VARCHAR(500) null,fullname VARCHAR(200) null,street VARCHAR(200) null,city VARCHAR(75) null,postcode VARCHAR(75) null)";
 
 	public static final String TABLE_SQL_DROP = "drop table ContactUs";
 
@@ -271,6 +275,9 @@ public class ContactUsModelImpl
 			attributeGetterFunctions.put(
 				"additionalInfo", ContactUs::getAdditionalInfo);
 			attributeGetterFunctions.put("fullname", ContactUs::getFullname);
+			attributeGetterFunctions.put("street", ContactUs::getStreet);
+			attributeGetterFunctions.put("city", ContactUs::getCity);
+			attributeGetterFunctions.put("postcode", ContactUs::getPostcode);
 
 			_attributeGetterFunctions = Collections.unmodifiableMap(
 				attributeGetterFunctions);
@@ -334,6 +341,13 @@ public class ContactUsModelImpl
 			attributeSetterBiConsumers.put(
 				"fullname",
 				(BiConsumer<ContactUs, String>)ContactUs::setFullname);
+			attributeSetterBiConsumers.put(
+				"street", (BiConsumer<ContactUs, String>)ContactUs::setStreet);
+			attributeSetterBiConsumers.put(
+				"city", (BiConsumer<ContactUs, String>)ContactUs::setCity);
+			attributeSetterBiConsumers.put(
+				"postcode",
+				(BiConsumer<ContactUs, String>)ContactUs::setPostcode);
 
 			_attributeSetterBiConsumers = Collections.unmodifiableMap(
 				(Map)attributeSetterBiConsumers);
@@ -701,6 +715,66 @@ public class ContactUsModelImpl
 		_fullname = fullname;
 	}
 
+	@JSON
+	@Override
+	public String getStreet() {
+		if (_street == null) {
+			return "";
+		}
+		else {
+			return _street;
+		}
+	}
+
+	@Override
+	public void setStreet(String street) {
+		if (_columnOriginalValues == Collections.EMPTY_MAP) {
+			_setColumnOriginalValues();
+		}
+
+		_street = street;
+	}
+
+	@JSON
+	@Override
+	public String getCity() {
+		if (_city == null) {
+			return "";
+		}
+		else {
+			return _city;
+		}
+	}
+
+	@Override
+	public void setCity(String city) {
+		if (_columnOriginalValues == Collections.EMPTY_MAP) {
+			_setColumnOriginalValues();
+		}
+
+		_city = city;
+	}
+
+	@JSON
+	@Override
+	public String getPostcode() {
+		if (_postcode == null) {
+			return "";
+		}
+		else {
+			return _postcode;
+		}
+	}
+
+	@Override
+	public void setPostcode(String postcode) {
+		if (_columnOriginalValues == Collections.EMPTY_MAP) {
+			_setColumnOriginalValues();
+		}
+
+		_postcode = postcode;
+	}
+
 	@Override
 	public StagedModelType getStagedModelType() {
 		return new StagedModelType(
@@ -780,6 +854,9 @@ public class ContactUsModelImpl
 		contactUsImpl.setCountry(getCountry());
 		contactUsImpl.setAdditionalInfo(getAdditionalInfo());
 		contactUsImpl.setFullname(getFullname());
+		contactUsImpl.setStreet(getStreet());
+		contactUsImpl.setCity(getCity());
+		contactUsImpl.setPostcode(getPostcode());
 
 		contactUsImpl.resetOriginalValues();
 
@@ -820,6 +897,10 @@ public class ContactUsModelImpl
 			this.<String>getColumnOriginalValue("additionalInfo"));
 		contactUsImpl.setFullname(
 			this.<String>getColumnOriginalValue("fullname"));
+		contactUsImpl.setStreet(this.<String>getColumnOriginalValue("street"));
+		contactUsImpl.setCity(this.<String>getColumnOriginalValue("city"));
+		contactUsImpl.setPostcode(
+			this.<String>getColumnOriginalValue("postcode"));
 
 		return contactUsImpl;
 	}
@@ -1017,6 +1098,30 @@ public class ContactUsModelImpl
 			contactUsCacheModel.fullname = null;
 		}
 
+		contactUsCacheModel.street = getStreet();
+
+		String street = contactUsCacheModel.street;
+
+		if ((street != null) && (street.length() == 0)) {
+			contactUsCacheModel.street = null;
+		}
+
+		contactUsCacheModel.city = getCity();
+
+		String city = contactUsCacheModel.city;
+
+		if ((city != null) && (city.length() == 0)) {
+			contactUsCacheModel.city = null;
+		}
+
+		contactUsCacheModel.postcode = getPostcode();
+
+		String postcode = contactUsCacheModel.postcode;
+
+		if ((postcode != null) && (postcode.length() == 0)) {
+			contactUsCacheModel.postcode = null;
+		}
+
 		return contactUsCacheModel;
 	}
 
@@ -1096,6 +1201,9 @@ public class ContactUsModelImpl
 	private String _country;
 	private String _additionalInfo;
 	private String _fullname;
+	private String _street;
+	private String _city;
+	private String _postcode;
 
 	public <T> T getColumnValue(String columnName) {
 		columnName = _attributeNames.getOrDefault(columnName, columnName);
@@ -1144,6 +1252,9 @@ public class ContactUsModelImpl
 		_columnOriginalValues.put("country", _country);
 		_columnOriginalValues.put("additionalInfo", _additionalInfo);
 		_columnOriginalValues.put("fullname", _fullname);
+		_columnOriginalValues.put("street", _street);
+		_columnOriginalValues.put("city", _city);
+		_columnOriginalValues.put("postcode", _postcode);
 	}
 
 	private static final Map<String, String> _attributeNames;
@@ -1200,6 +1311,12 @@ public class ContactUsModelImpl
 		columnBitmasks.put("additionalInfo", 32768L);
 
 		columnBitmasks.put("fullname", 65536L);
+
+		columnBitmasks.put("street", 131072L);
+
+		columnBitmasks.put("city", 262144L);
+
+		columnBitmasks.put("postcode", 524288L);
 
 		_columnBitmasks = Collections.unmodifiableMap(columnBitmasks);
 	}

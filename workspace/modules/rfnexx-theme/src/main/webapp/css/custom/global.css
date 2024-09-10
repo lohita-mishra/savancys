@@ -6,13 +6,15 @@
   --theme-red: #db2729;
   --theme-yellow: #eec044;
   --theme-green: #4baf47;
-  --text-color: #878680;
+  --text-color: #505F79;
   --heading-color: var(--theme-dark);
   --bg-grey: #f8f7f0;
   --theme-font: "Manrope", sans-serif;
   --theme-font-alt: "Covered By Your Grace", cursive;
   --pading-top-sec: 7rem;
   --padding-bottom-sec: 7rem;
+  --bg-grey: #F7F3F3;
+  --bg-light-sky: #EFEFEC;
 }
 
 *::-moz-selection {
@@ -34,11 +36,11 @@ a:hover {
 }
 
 body {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 500;
   color: var(--text-color);
   font-family: var(--theme-font);
-  line-height: 147.5%;
+  line-height: 140%;
 }
 
 h1,
@@ -203,4 +205,18 @@ h6,
 }
 .theme-btn:hover:after {
   width: 100%;
+}
+
+.btn-link:hover,
+a:hover {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 1400px) {
+  :root {
+    font-size: 1vw;
+  }
+  .container {
+    max-width: 90% !important;
+  }
 }/*# sourceMappingURL=global.css.map */

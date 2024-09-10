@@ -23,6 +23,11 @@
 		<field name="fullname" type="String">
 			<hint name="max-length">200</hint>
 		</field>
+		<field name="street" type="String">
+			<hint name="max-length">200</hint>
+		</field>
+		<field name="city" type="String" />
+		<field name="postcode" type="String" />
 	</model>
 	<model name="com.savancys.model.JobApplicant">
 		<field name="jobApplicantID" type="long" />

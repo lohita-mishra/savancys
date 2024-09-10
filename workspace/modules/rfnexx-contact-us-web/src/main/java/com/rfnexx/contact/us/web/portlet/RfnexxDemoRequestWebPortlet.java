@@ -19,22 +19,19 @@ import javax.portlet.ResourceResponse;
 
 import org.osgi.service.component.annotations.Component;
 
-/**
- * @author Admin
- */
 @Component(immediate = true, property = { "com.liferay.portlet.display-category=savancys",
 		"com.liferay.portlet.header-portlet-css=/css/main.css", "com.liferay.portlet.instanceable=true",
-		"javax.portlet.display-name=RfnexxContactUsWeb", "javax.portlet.init-param.template-path=/",
-		"javax.portlet.init-param.view-template=/view.jsp",
-		"javax.portlet.name=" + RfnexxContactUsWebPortletKeys.RFNEXXCONTACTUSWEB,
+		"javax.portlet.display-name=RfnexxRequestDemoWeb", "javax.portlet.init-param.template-path=/",
+		"javax.portlet.init-param.view-template=/requestFormDemo.jsp",
+		"javax.portlet.name=" + RfnexxContactUsWebPortletKeys.RFNEXXDEMOREQUESTWEB,
 		"javax.portlet.resource-bundle=content.Language",
 		"javax.portlet.security-role-ref=power-user,user" }, service = Portlet.class)
-public class RfnexxContactUsWebPortlet extends MVCPortlet {
+public class RfnexxDemoRequestWebPortlet extends MVCPortlet {
 
 	public void serveResource(ResourceRequest req, ResourceResponse resp) throws IOException, PortletException {
-		log.info("1 serveResource");
+		log.info("serveResource");
 		String resourceId = req.getResourceID();
-		if (resourceId.equalsIgnoreCase("SaveRfnexx")) {
+		if (resourceId.equalsIgnoreCase("requestFormDemo")) {
 			try {
 				saveRfnexxContact(req, resp);
 			} catch (PortalException e) {
@@ -44,7 +41,7 @@ public class RfnexxContactUsWebPortlet extends MVCPortlet {
 	}
 
 	private void saveRfnexxContact(ResourceRequest req, ResourceResponse resp) throws PortalException {
-		log.info("4 saveRfnexxContact :: ");
+		log.info("request form demo ");
 		String fullname = ParamUtil.getString(req, "fullname");
 		String street = ParamUtil.getString(req, "street");
 		String city = ParamUtil.getString(req, "city");
@@ -54,23 +51,10 @@ public class RfnexxContactUsWebPortlet extends MVCPortlet {
 		String additionalInfo = ParamUtil.getString(req, "additionalInfo");
 
 		ThemeDisplay themeDisplay = (ThemeDisplay) req.getAttribute(WebKeys.THEME_DISPLAY);
-
-		/*
-		 * if ((!InputValidator.isValidText(fullname)) ||
-		 * (!InputValidator.isValidEmail(email)) ||
-		 * (!InputValidator.isValidPhoneNumber(contactPhone))) {
-		 * SessionErrors.add((PortletRequest) req, "invalid-name");
-		 * SessionErrors.add((PortletRequest) req, "invalid-street");
-		 * SessionErrors.add((PortletRequest) req, "invalid-city");
-		 * SessionErrors.add((PortletRequest) req, "invalid-postcode");
-		 * SessionErrors.add((PortletRequest) req, "invalid-contactPhone");
-		 * SessionErrors.add((PortletRequest) req, "invalid-email");
-		 * SessionErrors.add((PortletRequest) req, "invalid-additionalInfo"); } else {
-		}
-		 */
-			ContactUsLocalServiceUtil.saveRFNEXxContact(fullname, street, city, postcode, contactPhone, email,
-					additionalInfo, themeDisplay);
+		ContactUsLocalServiceUtil.saveRFNEXxContact(fullname, street, city, postcode, contactPhone, email,
+				additionalInfo, themeDisplay);
 	}
 
-	private static final Log log = LogFactoryUtil.getLog(RfnexxContactUsWebPortlet.class);
+	private static final Log log = LogFactoryUtil.getLog(RfnexxDemoRequestWebPortlet.class);
+
 }
