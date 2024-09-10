@@ -15,6 +15,8 @@ import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.savancys.model.ContactUs;
 import com.savancys.service.base.ContactUsLocalServiceBaseImpl;
 
+import java.util.List;
+
 import org.osgi.service.component.annotations.Component;
 
 /**
@@ -24,11 +26,15 @@ import org.osgi.service.component.annotations.Component;
 public class ContactUsLocalServiceImpl extends ContactUsLocalServiceBaseImpl {
 	private Log log = LogFactoryUtil.getLog(ContactUsLocalServiceImpl.class);
 
-	public ContactUs addContact(String inquiryType, String firstName, String lastName, String phoneNumber, String email,
+	public ContactUs addContact(long groupId, String inquiryType, String firstName, String lastName, String phoneNumber, String email,
 			String companyName, String country, String additionalInfo) {
 		log.info("local");
 		long contactId = counterLocalService.increment(ContactUs.class.getName());
 		ContactUs contactUs = contactUsLocalService.createContactUs(contactId);
+		
+		//group id 
+		contactUs.setGroupId(groupId);
+		
 		contactUs.setInquiryType(inquiryType);
 		contactUs.setFirstName(firstName);
 		contactUs.setLastName(lastName);
@@ -65,7 +71,7 @@ public class ContactUsLocalServiceImpl extends ContactUsLocalServiceBaseImpl {
 
 	}
 
-	public ContactUs saveRFNEXxContact(String fullname, String street, String city, String postcode, String phoneNumber,
+	public ContactUs saveRFNEXxContact(String type, String fullname, String street, String city, String postcode, String phoneNumber,
 			String email, String additionalInfo, ThemeDisplay themeDisplay) throws PortalException {
 		log.info("saveSapnexxContact service");
 
@@ -75,6 +81,7 @@ public class ContactUsLocalServiceImpl extends ContactUsLocalServiceBaseImpl {
 		contactUs.setUserName(UserLocalServiceUtil.getUser(PrincipalThreadLocal.getUserId()).getFullName());
 		contactUs.setGroupId(themeDisplay.getScopeGroupId());
 
+		contactUs.setInquiryType(type);
 		contactUs.setContactId(contactId);
 		contactUs.setFullname(fullname);
 		contactUs.setStreet(street);
@@ -87,5 +94,10 @@ public class ContactUsLocalServiceImpl extends ContactUsLocalServiceBaseImpl {
 		contactUs = contactUsLocalService.addContactUs(contactUs);
 		return contactUs;
 
+	}
+	
+	public List<ContactUs> getContactUsByGroupId(long groupId) {
+		return contactUsPersistence.findByContactUsByGroupId(groupId);
+		
 	}
 }

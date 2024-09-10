@@ -1,5 +1,6 @@
 package com.rfnexx.contact.us.web.portlet;
 
+import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -8,12 +9,16 @@ import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.rfnexx.contact.us.web.constants.RfnexxContactUsWebPortletKeys;
+import com.savancys.model.ContactUs;
 import com.savancys.service.ContactUsLocalServiceUtil;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.portlet.Portlet;
 import javax.portlet.PortletException;
+import javax.portlet.RenderRequest;
+import javax.portlet.RenderResponse;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 
@@ -68,7 +73,7 @@ public class RfnexxContactUsWebPortlet extends MVCPortlet {
 		 * SessionErrors.add((PortletRequest) req, "invalid-additionalInfo"); } else {
 		}
 		 */
-			ContactUsLocalServiceUtil.saveRFNEXxContact(fullname, street, city, postcode, contactPhone, email,
+		ContactUsLocalServiceUtil.saveRFNEXxContact(StringPool.BLANK,fullname, street, city, postcode, contactPhone, email,
 					additionalInfo, themeDisplay);
 	}
 

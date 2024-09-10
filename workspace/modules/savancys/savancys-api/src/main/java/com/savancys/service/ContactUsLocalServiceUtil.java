@@ -37,13 +37,13 @@ public class ContactUsLocalServiceUtil {
 	 * Never modify this class directly. Add custom service methods to <code>com.savancys.service.impl.ContactUsLocalServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
 	public static ContactUs addContact(
-		String inquiryType, String firstName, String lastName,
+		long groupId, String inquiryType, String firstName, String lastName,
 		String phoneNumber, String email, String companyName, String country,
 		String additionalInfo) {
 
 		return getService().addContact(
-			inquiryType, firstName, lastName, phoneNumber, email, companyName,
-			country, additionalInfo);
+			groupId, inquiryType, firstName, lastName, phoneNumber, email,
+			companyName, country, additionalInfo);
 	}
 
 	/**
@@ -242,6 +242,10 @@ public class ContactUsLocalServiceUtil {
 		return getService().getContactUs(contactId);
 	}
 
+	public static List<ContactUs> getContactUsByGroupId(long groupId) {
+		return getService().getContactUsByGroupId(groupId);
+	}
+
 	/**
 	 * Returns the contact us matching the UUID and group.
 	 *
@@ -346,13 +350,14 @@ public class ContactUsLocalServiceUtil {
 	}
 
 	public static ContactUs saveRFNEXxContact(
-			String fullname, String street, String city, String postcode,
-			String phoneNumber, String email, String additionalInfo,
+			String type, String fullname, String street, String city,
+			String postcode, String phoneNumber, String email,
+			String additionalInfo,
 			com.liferay.portal.kernel.theme.ThemeDisplay themeDisplay)
 		throws PortalException {
 
 		return getService().saveRFNEXxContact(
-			fullname, street, city, postcode, phoneNumber, email,
+			type, fullname, street, city, postcode, phoneNumber, email,
 			additionalInfo, themeDisplay);
 	}
 

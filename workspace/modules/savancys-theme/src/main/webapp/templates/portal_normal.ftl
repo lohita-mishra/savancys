@@ -20,6 +20,8 @@
 	<@liferay.css file_name="${css_folder}/custom/global.css" />
 	<@liferay.css file_name="${css_folder}/custom/style.css" />
 	<@liferay.css file_name="${css_folder}/custom/responsive.css" />
+	<@liferay.css file_name = "${css_folder}/custom/jquery-ui.css" /> 
+ 	
 </head>
 
 		<#assign roleLocalService = serviceLocator.findService("com.liferay.portal.kernel.service.RoleLocalService")/>
@@ -87,6 +89,7 @@
 	    <#--<script type="module" src="${javascript_folder}/threeModal.js"></script>-->
     	<script src="${javascript_folder}/script.js"></script>
     	<#--<script src="${javascript_folder}/custom_script.js"></script>-->
+    	<@liferay.js file_name = "${javascript_folder}/jquery-ui.js" /> 	
 	    	
 </body>
 </html>

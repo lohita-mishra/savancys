@@ -30,13 +30,13 @@ public class ContactUsLocalServiceWrapper
 
 	@Override
 	public com.savancys.model.ContactUs addContact(
-		String inquiryType, String firstName, String lastName,
+		long groupId, String inquiryType, String firstName, String lastName,
 		String phoneNumber, String email, String companyName, String country,
 		String additionalInfo) {
 
 		return _contactUsLocalService.addContact(
-			inquiryType, firstName, lastName, phoneNumber, email, companyName,
-			country, additionalInfo);
+			groupId, inquiryType, firstName, lastName, phoneNumber, email,
+			companyName, country, additionalInfo);
 	}
 
 	/**
@@ -267,6 +267,13 @@ public class ContactUsLocalServiceWrapper
 		return _contactUsLocalService.getContactUs(contactId);
 	}
 
+	@Override
+	public java.util.List<com.savancys.model.ContactUs> getContactUsByGroupId(
+		long groupId) {
+
+		return _contactUsLocalService.getContactUsByGroupId(groupId);
+	}
+
 	/**
 	 * Returns the contact us matching the UUID and group.
 	 *
@@ -388,13 +395,14 @@ public class ContactUsLocalServiceWrapper
 
 	@Override
 	public com.savancys.model.ContactUs saveRFNEXxContact(
-			String fullname, String street, String city, String postcode,
-			String phoneNumber, String email, String additionalInfo,
+			String type, String fullname, String street, String city,
+			String postcode, String phoneNumber, String email,
+			String additionalInfo,
 			com.liferay.portal.kernel.theme.ThemeDisplay themeDisplay)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _contactUsLocalService.saveRFNEXxContact(
-			fullname, street, city, postcode, phoneNumber, email,
+			type, fullname, street, city, postcode, phoneNumber, email,
 			additionalInfo, themeDisplay);
 	}
 

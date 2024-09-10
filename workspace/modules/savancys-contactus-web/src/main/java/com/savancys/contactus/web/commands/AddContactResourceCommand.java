@@ -3,7 +3,9 @@ package com.savancys.contactus.web.commands;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCResourceCommand;
+import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ParamUtil;
+import com.liferay.portal.kernel.util.WebKeys;
 import com.sapnexx.common.validator.util.InputValidator;
 import com.savancys.contactus.web.constants.SavancysContactUsPortletKeys;
 import com.savancys.service.ContactUsLocalService;
@@ -42,9 +44,12 @@ public class AddContactResourceCommand implements MVCResourceCommand {
 		String country = ParamUtil.getString(resourceRequest, "country");
 		String additionalInfo = ParamUtil.getString(resourceRequest, "additionalInfo");
 		resourceResponse.setContentType("text/html");
+		ThemeDisplay themeDisplay = (ThemeDisplay) resourceRequest.getAttribute(WebKeys.THEME_DISPLAY);
+
+		long groupId = themeDisplay.getScopeGroupId();
 		PrintWriter out;
 		try {
-			contactUsLocalService.addContact(inquiryType, firstName, lastName, phoneNumber, email, companyName, country,
+			contactUsLocalService.addContact(groupId, inquiryType, firstName, lastName, phoneNumber, email, companyName, country,
 					additionalInfo);
 			out = resourceResponse.getWriter();
 			out.println("successfully submitted.");

@@ -42,6 +42,8 @@ public class RfnexxDemoRequestWebPortlet extends MVCPortlet {
 
 	private void saveRfnexxContact(ResourceRequest req, ResourceResponse resp) throws PortalException {
 		log.info("request form demo ");
+		
+		String type = ParamUtil.getString(req, "type");
 		String fullname = ParamUtil.getString(req, "fullname");
 		String street = ParamUtil.getString(req, "street");
 		String city = ParamUtil.getString(req, "city");
@@ -51,7 +53,7 @@ public class RfnexxDemoRequestWebPortlet extends MVCPortlet {
 		String additionalInfo = ParamUtil.getString(req, "additionalInfo");
 
 		ThemeDisplay themeDisplay = (ThemeDisplay) req.getAttribute(WebKeys.THEME_DISPLAY);
-		ContactUsLocalServiceUtil.saveRFNEXxContact(fullname, street, city, postcode, contactPhone, email,
+		ContactUsLocalServiceUtil.saveRFNEXxContact(type,fullname, street, city, postcode, contactPhone, email,
 				additionalInfo, themeDisplay);
 	}
 

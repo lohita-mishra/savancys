@@ -23,6 +23,7 @@
 	<@liferay.css file_name="${css_folder}/custom/global.css" />
 	<@liferay.css file_name="${css_folder}/custom/style.css" />
 	<@liferay.css file_name="${css_folder}/custom/responsive.css" />
+	<@liferay.css file_name = "${css_folder}/custom/jquery-ui.css" /> 
 
 </head>
 
@@ -71,6 +72,7 @@
 	
 		<script src="${javascript_folder}/custom_script.js"></script>
 		<script src="${javascript_folder}/script.js"></script>
+		<@liferay.js file_name = "${javascript_folder}/jquery-ui.js" />
 		
 </body>
 </html>

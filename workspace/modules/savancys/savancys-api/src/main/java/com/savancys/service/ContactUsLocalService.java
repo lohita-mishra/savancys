@@ -57,7 +57,7 @@ public interface ContactUsLocalService
 	 * Never modify this interface directly. Add custom service methods to <code>com.savancys.service.impl.ContactUsLocalServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface. Consume the contact us local service via injection or a <code>org.osgi.util.tracker.ServiceTracker</code>. Use {@link ContactUsLocalServiceUtil} if injection and service tracking are not available.
 	 */
 	public ContactUs addContact(
-		String inquiryType, String firstName, String lastName,
+		long groupId, String inquiryType, String firstName, String lastName,
 		String phoneNumber, String email, String companyName, String country,
 		String additionalInfo);
 
@@ -221,6 +221,9 @@ public interface ContactUsLocalService
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ContactUs getContactUs(long contactId) throws PortalException;
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<ContactUs> getContactUsByGroupId(long groupId);
+
 	/**
 	 * Returns the contact us matching the UUID and group.
 	 *
@@ -304,9 +307,9 @@ public interface ContactUsLocalService
 		throws PortalException;
 
 	public ContactUs saveRFNEXxContact(
-			String fullname, String street, String city, String postcode,
-			String phoneNumber, String email, String additionalInfo,
-			ThemeDisplay themeDisplay)
+			String type, String fullname, String street, String city,
+			String postcode, String phoneNumber, String email,
+			String additionalInfo, ThemeDisplay themeDisplay)
 		throws PortalException;
 
 	public ContactUs saveSapnexxContact(

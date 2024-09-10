@@ -1,10 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
 
-<service-builder dependency-injector="ds" package-path="com.savancys">
+<service-builder dependency-injector="ds"
+	package-path="com.savancys">
 	<namespace>sys</namespace>
-	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
-	<entity local-service="true" name="ContactUs" table="ContactUs" remote-service="true" uuid="true">
+	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" 
+		remote-service="false" session-factory="sampleSessionFactory" table="foo" 
+		tx-manager="sampleTransactionManager uuid="true""> -->
+	<entity local-service="true" name="ContactUs" table="ContactUs"
+		remote-service="true" uuid="true">
 
 		<!-- PK fields -->
 		<column name="contactId" primary="true" type="long" />
@@ -32,14 +36,19 @@
 		<column name="street" type="String" />
 		<column name="city" type="String" />
 		<column name="postcode" type="String" />
-		
+
 		<!-- Order -->
 		<order by="asc">
 			<order-column name="contactId" />
 		</order>
-		
+
+		<finder return-type="Collection" name="ContactUsByGroupId">
+			<finder-column name="groupId"></finder-column>
+		</finder>
+
 	</entity>
-	<entity local-service="true" name="JobApplicant" table="JobApplicant" remote-service="true">
+	<entity local-service="true" name="JobApplicant"
+		table="JobApplicant" remote-service="true">
 
 		<!-- PK fields -->
 		<column name="jobApplicantID" primary="true" type="long" />
@@ -66,12 +75,12 @@
 		<column name="jobPostId" type="long" />
 		<column name="skill" type="String" />
 		<column name="webAuthorization" type="String" />
-		
+
 		<!-- Order -->
 		<order by="desc">
 			<order-column name="createDate" />
 		</order>
-		
+
 	</entity>
 	<entity local-service="true" name="JobPost"
 		remote-service="true" uuid="true" table="JobPost">

@@ -25,6 +25,7 @@
 <portlet:resourceURL var="requestDemoFormURL" id='requestFormDemo'></portlet:resourceURL>
 
 <aui:form cssClass="w-100 d-flex flex-column align-items-start justify-content-center requestDemoForm" name="requestDemoForm" id="requestDemoForm" autocomplete="off">
+    <aui:input name="hidden" name="type" value="Demo"></aui:input>
     <div class="row m-0 w-100">
         <div class="col-12 col-sm-6 col-md-12 col-lg-12 mb-4 p-0">
             <aui:input type="text" name="fullname" id="fullname" placeholder="Contact Name" label="">

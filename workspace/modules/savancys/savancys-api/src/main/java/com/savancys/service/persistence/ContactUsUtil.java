@@ -521,6 +521,175 @@ public class ContactUsUtil {
 	}
 
 	/**
+	 * Returns all the contact uses where groupId = &#63;.
+	 *
+	 * @param groupId the group ID
+	 * @return the matching contact uses
+	 */
+	public static List<ContactUs> findByContactUsByGroupId(long groupId) {
+		return getPersistence().findByContactUsByGroupId(groupId);
+	}
+
+	/**
+	 * Returns a range of all the contact uses where groupId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ContactUsModelImpl</code>.
+	 * </p>
+	 *
+	 * @param groupId the group ID
+	 * @param start the lower bound of the range of contact uses
+	 * @param end the upper bound of the range of contact uses (not inclusive)
+	 * @return the range of matching contact uses
+	 */
+	public static List<ContactUs> findByContactUsByGroupId(
+		long groupId, int start, int end) {
+
+		return getPersistence().findByContactUsByGroupId(groupId, start, end);
+	}
+
+	/**
+	 * Returns an ordered range of all the contact uses where groupId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ContactUsModelImpl</code>.
+	 * </p>
+	 *
+	 * @param groupId the group ID
+	 * @param start the lower bound of the range of contact uses
+	 * @param end the upper bound of the range of contact uses (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching contact uses
+	 */
+	public static List<ContactUs> findByContactUsByGroupId(
+		long groupId, int start, int end,
+		OrderByComparator<ContactUs> orderByComparator) {
+
+		return getPersistence().findByContactUsByGroupId(
+			groupId, start, end, orderByComparator);
+	}
+
+	/**
+	 * Returns an ordered range of all the contact uses where groupId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to <code>QueryUtil#ALL_POS</code> will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent, then the query will include the default ORDER BY logic from <code>ContactUsModelImpl</code>.
+	 * </p>
+	 *
+	 * @param groupId the group ID
+	 * @param start the lower bound of the range of contact uses
+	 * @param end the upper bound of the range of contact uses (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @param useFinderCache whether to use the finder cache
+	 * @return the ordered range of matching contact uses
+	 */
+	public static List<ContactUs> findByContactUsByGroupId(
+		long groupId, int start, int end,
+		OrderByComparator<ContactUs> orderByComparator,
+		boolean useFinderCache) {
+
+		return getPersistence().findByContactUsByGroupId(
+			groupId, start, end, orderByComparator, useFinderCache);
+	}
+
+	/**
+	 * Returns the first contact us in the ordered set where groupId = &#63;.
+	 *
+	 * @param groupId the group ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching contact us
+	 * @throws NoSuchContactUsException if a matching contact us could not be found
+	 */
+	public static ContactUs findByContactUsByGroupId_First(
+			long groupId, OrderByComparator<ContactUs> orderByComparator)
+		throws com.savancys.exception.NoSuchContactUsException {
+
+		return getPersistence().findByContactUsByGroupId_First(
+			groupId, orderByComparator);
+	}
+
+	/**
+	 * Returns the first contact us in the ordered set where groupId = &#63;.
+	 *
+	 * @param groupId the group ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching contact us, or <code>null</code> if a matching contact us could not be found
+	 */
+	public static ContactUs fetchByContactUsByGroupId_First(
+		long groupId, OrderByComparator<ContactUs> orderByComparator) {
+
+		return getPersistence().fetchByContactUsByGroupId_First(
+			groupId, orderByComparator);
+	}
+
+	/**
+	 * Returns the last contact us in the ordered set where groupId = &#63;.
+	 *
+	 * @param groupId the group ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching contact us
+	 * @throws NoSuchContactUsException if a matching contact us could not be found
+	 */
+	public static ContactUs findByContactUsByGroupId_Last(
+			long groupId, OrderByComparator<ContactUs> orderByComparator)
+		throws com.savancys.exception.NoSuchContactUsException {
+
+		return getPersistence().findByContactUsByGroupId_Last(
+			groupId, orderByComparator);
+	}
+
+	/**
+	 * Returns the last contact us in the ordered set where groupId = &#63;.
+	 *
+	 * @param groupId the group ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching contact us, or <code>null</code> if a matching contact us could not be found
+	 */
+	public static ContactUs fetchByContactUsByGroupId_Last(
+		long groupId, OrderByComparator<ContactUs> orderByComparator) {
+
+		return getPersistence().fetchByContactUsByGroupId_Last(
+			groupId, orderByComparator);
+	}
+
+	/**
+	 * Returns the contact uses before and after the current contact us in the ordered set where groupId = &#63;.
+	 *
+	 * @param contactId the primary key of the current contact us
+	 * @param groupId the group ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next contact us
+	 * @throws NoSuchContactUsException if a contact us with the primary key could not be found
+	 */
+	public static ContactUs[] findByContactUsByGroupId_PrevAndNext(
+			long contactId, long groupId,
+			OrderByComparator<ContactUs> orderByComparator)
+		throws com.savancys.exception.NoSuchContactUsException {
+
+		return getPersistence().findByContactUsByGroupId_PrevAndNext(
+			contactId, groupId, orderByComparator);
+	}
+
+	/**
+	 * Removes all the contact uses where groupId = &#63; from the database.
+	 *
+	 * @param groupId the group ID
+	 */
+	public static void removeByContactUsByGroupId(long groupId) {
+		getPersistence().removeByContactUsByGroupId(groupId);
+	}
+
+	/**
+	 * Returns the number of contact uses where groupId = &#63;.
+	 *
+	 * @param groupId the group ID
+	 * @return the number of matching contact uses
+	 */
+	public static int countByContactUsByGroupId(long groupId) {
+		return getPersistence().countByContactUsByGroupId(groupId);
+	}
+
+	/**
 	 * Caches the contact us in the entity cache if it is enabled.
 	 *
 	 * @param contactUs the contact us

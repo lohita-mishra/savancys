@@ -125,7 +125,7 @@ function ajaxCall() {
 	            form: { id: '<portlet:namespace />rfnexxForm' },
 	            on: {
 	                success: function(event, id) {
-	                	console.log(submitted);
+	                	console.log("submitted");
 	                    /* Swal.fire({
 	                        icon: 'success',
 	                        title: 'Success',
