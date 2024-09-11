@@ -143,7 +143,7 @@
 								<aui:validator name="required" errorMessage="Terms and conditions is required."></aui:validator>
 							</aui:input>
 						</div>
-						<div>
+						<div class="col-md-12">
 					<liferay-captcha:captcha url="<%=captchaResourceURL%>"/>
 					<p id="<portlet:namespace/>error-msg" class="alert alert-danger d-none"></p>
 					
