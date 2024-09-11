@@ -86,14 +86,25 @@
 							<aui:input type="text" name="firstName" label="First Name"
 								id="firstName">
 								<aui:validator name="required" errorMessage="First Name is required." />
-								<aui:validator name="alpha"/>
+								<aui:validator name="custom" errorMessage="Invalid First Name">
+									function(val) {
+									    var regex = /^[a-zA-Z\s]*$/; 
+									    return regex.test(val);  
+									}
+								</aui:validator>
 							</aui:input>
 						</div>
 						<div class="col-md-12">
 							<aui:input type="text" name="lastName" label="Last Name"
 								id="lastName">
 								<aui:validator name="required" errorMessage="Last Name is required." />
-								<aui:validator name="alpha"/>
+								<aui:validator name="alpha"/><aui:validator name="custom" errorMessage="Invalid Last Name">
+									function(val) {
+									    var regex = /^[a-zA-Z\s]*$/; 
+									    return regex.test(val);  
+									}
+								</aui:validator>
+								
 							</aui:input>
 						</div>
 						<div class="col-md-12">
@@ -120,14 +131,18 @@
 							<aui:input type="text" name="companyName" label="Company Name"
 								id="companyName">
 								<aui:validator name="required" errorMessage="Company Name is required." />
-								<aui:validator name="alphanum"/>	
 							</aui:input>
 						</div>
 						<div class="col-md-12">
 							<aui:input type="text" name="country" label="Country"
 								id="country">
 								<aui:validator name="required" errorMessage="Country is required." />
-								<aui:validator name="alpha" />
+								<aui:validator name="custom" errorMessage="Invalid Country">
+									function(val) {
+									    var regex = /^[a-zA-Z\s]*$/; 
+									    return regex.test(val);  
+									}
+								</aui:validator>
 							</aui:input>
 						</div>
 					</div>

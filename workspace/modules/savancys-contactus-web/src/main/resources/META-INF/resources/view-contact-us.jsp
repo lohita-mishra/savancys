@@ -3,13 +3,6 @@
 <%@page import="com.liferay.portal.kernel.util.ListUtil"%>
 <%@ include file="init.jsp"%>
 
-<style>
-.tooltip-title {
-	max-width: 350px;
-	margin-bottom: 0px;
-}
-</style>
-
 <liferay-portlet:renderURL varImpl="iteratorURL">
 	<portlet:param name="mvcRenderCommandName" value="/" />
 </liferay-portlet:renderURL>

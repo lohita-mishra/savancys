@@ -4,10 +4,10 @@
 <%@ include file="init.jsp"%>
 
 <style>
-.tooltip-title {
-	max-width: 350px;
-	margin-bottom: 0px;
+.contact-us-list tr > th{
+    background-color: lightgrey;
 }
+
 </style>
 
 <liferay-portlet:renderURL varImpl="iteratorURL">
@@ -18,7 +18,7 @@
 	List<ContactUs> contactUsList = (List<ContactUs>) renderRequest.getAttribute("contactUsList");
 %>
 
-<div class="container">
+<div class="container mt-5 contact-us-list">
 	<div class="row">
 	 	<div class="col-12">
 		 	<h3>Contact Us</h3>

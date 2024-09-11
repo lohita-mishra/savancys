@@ -72,3 +72,16 @@ footer.site_footer {
 	    font-weight: bold;
 	}
 }
+
+.tooltip-title {
+	max-width: 350px;
+	margin-bottom: 0px;
+}
+  
+.tooltip-text {
+	display: block;
+	max-width: 200px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

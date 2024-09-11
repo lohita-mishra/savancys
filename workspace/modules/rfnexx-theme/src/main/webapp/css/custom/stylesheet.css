@@ -14,3 +14,16 @@ body {
 margin: 0px !important;
 margin-bottom:0px !important:
 }
+
+.tooltip-title {
+	max-width: 350px;
+	margin-bottom: 0px;
+}
+  
+.tooltip-text {
+	display: block;
+	max-width: 200px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

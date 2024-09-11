@@ -70,12 +70,15 @@
 
 	<@liferay_util["include"] page=body_bottom_include />
 	<@liferay_util["include"] page=bottom_include />
+  	<@liferay.js file_name = "${javascript_folder}/jquery-ui.js" /> 	
 	
 		<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-	    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-	    <script src='https://unpkg.com/three@0.138.3/build/three.min.js'></script>
+	 <#--   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> -->
+	    
+	<#--<script src='https://unpkg.com/three@0.138.3/build/three.min.js'></script>
 	    <script src='https://unpkg.com/three@0.138.3/examples/js/controls/OrbitControls.js'></script>
-	    <script src='https://unpkg.com/three@0.138.3/examples/js/loaders/GLTFLoader.js'></script>
+	    <script src='https://unpkg.com/three@0.138.3/examples/js/loaders/GLTFLoader.js'></script>-->
+	    
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     	<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js'></script>
@@ -84,12 +87,13 @@
 	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
 	    
-	    <script src="${javascript_folder}/scrollSmooth.js"></script>
+	    
 	    <script src="${javascript_folder}/splitText3.js"></script>
-	    <#--<script type="module" src="${javascript_folder}/threeModal.js"></script>-->
-    	<script src="${javascript_folder}/script.js"></script>
+	    <script src="${javascript_folder}/script.js"></script>
+	    
+	    <#--<script type="module" src="${javascript_folder}/threeModal.js"></script>
+	    <script src="${javascript_folder}/scrollSmooth.js"></script>-->
     	<#--<script src="${javascript_folder}/custom_script.js"></script>-->
-    	<@liferay.js file_name = "${javascript_folder}/jquery-ui.js" /> 	
 	    	
 </body>
 </html>

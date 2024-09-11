@@ -25,12 +25,17 @@
 <portlet:resourceURL var="requestDemoFormURL" id='requestFormDemo'></portlet:resourceURL>
 
 <aui:form cssClass="w-100 d-flex flex-column align-items-start justify-content-center requestDemoForm" name="requestDemoForm" id="requestDemoForm" autocomplete="off">
-    <aui:input name="hidden" name="type" value="Demo"></aui:input>
+    <aui:input type="hidden" name="type" value="Demo"></aui:input>
     <div class="row m-0 w-100">
         <div class="col-12 col-sm-6 col-md-12 col-lg-12 mb-4 p-0">
             <aui:input type="text" name="fullname" id="fullname" placeholder="Contact Name" label="">
             	<aui:validator name="required" errorMessage="Contact is required." />
-				<aui:validator name="alpha"/>
+				<aui:validator name="custom" errorMessage="Invalid Contact Name">
+					function(val) {
+						var regex = /^[a-zA-Z\s]*$/; 
+						return regex.test(val);  
+					}
+				</aui:validator>
             </aui:input>
         </div>
         <div class="col-12 col-sm-6 col-md-12 col-lg-12 mb-4 p-0">
@@ -42,7 +47,12 @@
         <div class="col-12 col-sm-6 col-md-8 col-lg-8 mb-4 p-0 pr-4">
             <aui:input type="text" name="city" id="city" placeholder="City" label="">
             	<aui:validator name="required" errorMessage="City is required." />
-            	<aui:validator name="alpha"/>
+            	<aui:validator name="custom" errorMessage="Invalid City">
+					function(val) {
+						var regex = /^[a-zA-Z\s]*$/; 
+						return regex.test(val);  
+					}
+				</aui:validator>
             </aui:input>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 p-0">
