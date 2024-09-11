@@ -15,7 +15,11 @@
 </style>
 <div class="container box my-3 p-3">
 	
-
+ <c:if test="${empty allPosts}">
+        <div >
+            <h5 class="text-center mx-auto col-12 col-md-10 col-lg-9 " >"Our team is complete for now, but we are always growing. Be sure to revisit our careers page for future opportunities"</h5>
+        </div>
+    </c:if>
 	<c:forEach items="${allPosts}" var="jobPost">
 		<portlet:renderURL var="applyJobURL">
 			<portlet:param name="jobPostId" value="${jobPost.getJobPostId()}" />
@@ -24,7 +28,7 @@
 
 		<div class="row mb-4 p-2 pt-3 mb-3 "
 			style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border-radius: 10px;">
-			<div class="col-lg-4  border-right border-info">
+			<div class="col-lg-4  border-right border-info p-2">
 
 				<div class="inner pl-2">
 					<h4 class="text-yellow-orange">${jobPost.getJobPostName()}</h4>
@@ -54,15 +58,11 @@
 						<span class="skills">${jobPost.getSkills()}</span>
 					</p>
 					</c:if>
-					<p>
-						<span class="font-weight-bold icon">&#8377;</span><span
-							class="static-field font-weight-bold">   Salary:</span>
-						${jobPost.getSalary()}
-					</p>
+				
 				</div>
 			</div>
 			<div class="col-lg-8 pt-3 ">
-				<div class="d-flex flex-column justify-content-between p-3">
+				<div class="d-flex flex-column justify-content-between p-2">
 					<p class="mb-3 ">${jobPost.getDescription()}</p>
 
 					<div class="d-flex justify-content-end align-items-center">

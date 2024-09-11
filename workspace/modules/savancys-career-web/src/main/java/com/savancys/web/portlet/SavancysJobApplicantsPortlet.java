@@ -67,6 +67,7 @@ public class SavancysJobApplicantsPortlet extends MVCPortlet {
 		int listSize = 0;
 		try {
 			jobApplicantList = JobApplicantLocalServiceUtil.getJobApplicantDetailsWithJobPostName(postFilter, formattedStartDate, formattedendDate);
+			log.info("jobApplicantList "+jobApplicantList);
 			listSize = jobApplicantList.size();
 		} catch (Exception e) {
 			log.error("Error fetching job applicants: " + e.getMessage());

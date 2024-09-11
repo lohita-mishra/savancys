@@ -36,11 +36,10 @@ public class JobPostSaveAction extends BaseMVCActionCommand {
 		String location = ParamUtil.getString(actionRequest, "location").trim();
 		String skills = ParamUtil.getString(actionRequest, "skills").trim();
 		String description = ParamUtil.getString(actionRequest, "description").trim();
-		String salary = ParamUtil.getString(actionRequest, "salary").trim();
 		boolean active = ParamUtil.getBoolean(actionRequest, "activated");
 
 		if (Validator.isNull(jobPostName) || Validator.isNull(experience) || Validator.isNull(qualification)
-				|| Validator.isNull(location) || Validator.isNull(description) || Validator.isNull(salary)) {
+				|| Validator.isNull(location) || Validator.isNull(description) ) {
 			SessionMessages.add(actionRequest, "error", "Required fields should not be null!");
 			return;
 		}
@@ -48,12 +47,12 @@ public class JobPostSaveAction extends BaseMVCActionCommand {
 		try {
 			if (jobPostId == null || jobPostId == 0) {
 				_jobPostLocalService.saveOrUpdateJobPost(null, jobPostName, experience, qualification, location, skills,
-						description, salary, active);
+						description, null, active);
 				SessionMessages.add(actionRequest, "success", "Job Post created successfully!");
 			} else {
 				log.info("Updation called for JobPost ID: " + jobPostId);
 				_jobPostLocalService.saveOrUpdateJobPost(jobPostId, jobPostName, experience, qualification, location,
-						skills, description, salary, active);
+						skills, description, null, active);
 				SessionMessages.add(actionRequest, "success", "Job Post updated successfully!");
 			}
 		} catch (Exception e) {

@@ -24,16 +24,7 @@ textarea {
 				<div class="col-md-6">
 					<aui:input name="jobPostName" label="Post Name" value="${jobPost.jobPostName}">
 						<aui:validator name="required" />
-						<aui:validator name="custom" 
-							errorMessage="Only alphabets are allowed.">
-	                    function(val, fieldNode, ruleValue) {
-	                        if (val.charAt(0) == ' ') {
-	                            return false;
-	                        }
-	                        var regex = /^[a-zA-Z\s]+$/;
-	                        return regex.test(val);
-	                    }
-	                </aui:validator>
+						
 					</aui:input>
 				</div>
 				<div class="col-md-6">
@@ -47,21 +38,17 @@ textarea {
 					</aui:input>
 				</div>
 				<div class="col-md-6">
+					<aui:input name="location" label="Location" value="${ jobPost.location }">
+						<aui:validator name="required" />
+					</aui:input>
+				</div>
+				<div class="col-md-12">
 					<aui:input name="skills" id="skillsInput" label="Skills" value="${ jobPost.skills }"
 						placeholder="Java,Liferay,...">
 					 	<aui:validator name="maxLength">250</aui:validator>
 					 </aui:input>
 				</div>
-				<div class="col-md-6">
-					<aui:input name="salary" label="Salary" value="${ jobPost.salary }">
-						<aui:validator name="required" />
-					</aui:input>
-				</div>
-				<div class="col-md-6">
-					<aui:input name="location" label="Location" value="${ jobPost.location }">
-						<aui:validator name="required" />
-					</aui:input>
-				</div>
+				
 				<div class="col-md-12">
 					<aui:input type="checkbox" name="activated" checked="${ jobPost.active}" label="Active/In-active"  />
 				</div>
@@ -72,9 +59,10 @@ textarea {
                         <aui:validator name="maxLength">4000</aui:validator>
 					</aui:input>
 				</div>
+			
 				<a href="<%=backPageRender.toString()%>"
-					class="btn btn-primary float-right">Back</a>
-				<button type="submit" class="btn btn-primary ml-auto mr-2">
+					class="btn btn-primary float-right" style="background:#3693C0; border:#3693C0">Back</a>
+				<button type="submit" class="btn btn-primary ml-auto mr-2" style="background:#3693C0; border:#3693C0">
                 	${jobPost != null ? "Update" : "Submit"}
             	</button>
 			</div>

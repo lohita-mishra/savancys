@@ -6,9 +6,14 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/intlTelInput.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+<%@ taglib uri="http://liferay.com/tld/util" prefix="liferay-util" %>
+<%@ taglib uri="http://liferay.com/tld/captcha" prefix="liferay-captcha" %>
+<%@ page import="com.liferay.portal.kernel.captcha.CaptchaTextException"%>
 <portlet:resourceURL id="addContactUs" var="addContactUsURL" />
-
+<portlet:resourceURL id="captcha" var="captchaResourceURL"/>
+<liferay-ui:error key="captcha-error" message="captcha verification failed..." />
+<liferay-ui:error exception="<%=CaptchaTextException.class%>"
+	message="captcha-verification-failed" />
 <style>
 .submit-btn {
 	background: #3185BA;
@@ -138,6 +143,11 @@
 								<aui:validator name="required" errorMessage="Terms and conditions is required."></aui:validator>
 							</aui:input>
 						</div>
+						<div>
+					<liferay-captcha:captcha url="<%=captchaResourceURL%>"/>
+					<p id="<portlet:namespace/>error-msg" class="alert alert-danger d-none"></p>
+					
+					</div>
 					</div>	
 					<aui:button type="submit" cssClass="submit-btn" id="contactUsSubmitForm" 
 						value="Request a callback" />
@@ -180,30 +190,37 @@
 	}
 
 	//function submitContactUsForm(event) {
-    $('#<portlet:namespace/>contactUsSubmitForm').on('click', function(event) {	
-		event.preventDefault();
-		if (validateForm('<portlet:namespace/>contactUsForm')) {
-			var formData = $("#<portlet:namespace/>contactUsForm").serialize();
+$('#<portlet:namespace/>contactUsSubmitForm').on('click', function(event) {
+    event.preventDefault();
+    
+    if (validateForm('<portlet:namespace/>contactUsForm')) {
+        var formData = $("#<portlet:namespace/>contactUsForm").serialize();
 
-			$.ajax({
-				url: '<%= addContactUsURL.toString() %>',
-				method: 'POST',
-				data: formData,				
-				success: function(response) {
-					
-				console.log(response);
-					if(response){
-						 $("#<portlet:namespace/>contactUsForm").addClass("d-none");
-						 $("#<portlet:namespace/>success-msg").removeClass('d-none');
-					} 
-				}
-			});
-		} else {
-			return false;
-		} 
-	});
+        $.ajax({
+            url: '<%= addContactUsURL.toString() %>',
+            method: 'POST',
+            data: formData,                
+            success: function(response) {
+                console.log("dsdsd  ",response);
 
-	function pageReload() {
-		location.reload(); 
-	}
+                if (response.status=='error') {
+                   console.log("dsjdjs");
+                	$("#<portlet:namespace/>error-msg").text(response.message).removeClass('d-none');  
+                } 
+                if(response.status=='success') {
+                	console.log("succ");
+                
+                    $("#<portlet:namespace/>contactUsForm").addClass("d-none");
+                    $("#<portlet:namespace/>success-msg").removeClass('d-none');
+                }
+            },
+            error: function() {
+                $("#<portlet:namespace/>error-msg").text('An error occurred while submitting the form.').removeClass('d-none');
+            }
+        });
+    } else {
+        return false;
+    } 
+});
+
 </script>

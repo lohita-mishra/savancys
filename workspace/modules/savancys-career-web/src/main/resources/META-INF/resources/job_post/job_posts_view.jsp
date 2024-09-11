@@ -17,7 +17,7 @@
 <div class="container job-applicants-pager">
 	<div class="row justify-content-end">
 		<div class="col-auto">
-			<a href="<%=jobPostFormURL%>" class="btn btn-primary"> Create Job
+			<a href="<%=jobPostFormURL%>" class="btn btn-primary" style="background:#3693C0; border:#3693C0"> Create Job
 				Post </a> 
 		</div>
 	</div>
