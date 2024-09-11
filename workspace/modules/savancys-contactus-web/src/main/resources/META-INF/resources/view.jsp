@@ -1,19 +1,13 @@
 <%@ include file="init.jsp"%>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<%@ taglib uri="http://liferay.com/tld/captcha" prefix="liferay-captcha" %>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/css/intlTelInput.css">
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/intlTelInput.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<%@ taglib uri="http://liferay.com/tld/util" prefix="liferay-util" %>
-<%@ taglib uri="http://liferay.com/tld/captcha" prefix="liferay-captcha" %>
-<%@ page import="com.liferay.portal.kernel.captcha.CaptchaTextException"%>
+
 <portlet:resourceURL id="addContactUs" var="addContactUsURL" />
 <portlet:resourceURL id="captcha" var="captchaResourceURL"/>
-<liferay-ui:error key="captcha-error" message="captcha verification failed..." />
-<liferay-ui:error exception="<%=CaptchaTextException.class%>"
-	message="captcha-verification-failed" />
+
 <style>
 .submit-btn {
 	background: #3185BA;

@@ -11,4 +11,6 @@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 
 <portlet:defineObjects />
 
+<%@ taglib uri="http://liferay.com/tld/captcha" prefix="liferay-captcha" %>
+
 <script src="<%=request.getContextPath()%>/js/sweetalert2.all.min.js"></script>

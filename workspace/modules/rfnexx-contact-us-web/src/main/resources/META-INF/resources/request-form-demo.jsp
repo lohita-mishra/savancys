@@ -18,13 +18,12 @@
 	}
 }
 
-
-
 </style>
 
 <portlet:resourceURL var="requestDemoFormURL" id='requestFormDemo'></portlet:resourceURL>
+<portlet:resourceURL id="captcha" var="captchaResourceURL"/>
 
-<aui:form cssClass="w-100 d-flex flex-column align-items-start justify-content-center requestDemoForm" name="requestDemoForm" id="requestDemoForm" autocomplete="off">
+<aui:form cssClass="w-100 requestDemoForm" name="requestDemoForm" id="requestDemoForm" autocomplete="off">
     <aui:input type="hidden" name="type" value="Demo"></aui:input>
     <div class="row m-0 w-100">
         <div class="col-12 col-sm-6 col-md-12 col-lg-12 mb-4 p-0">
@@ -78,7 +77,12 @@
             	<aui:validator name="maxLength">500</aui:validator>
             </aui:input>
         </div>
-        <div class="col-12 p-0">
+		<div class="col-md-12 p-0">
+			<liferay-captcha:captcha url="<%=captchaResourceURL%>" />
+			<p id="<portlet:namespace/>error-msg"
+				class="alert alert-danger d-none"></p>
+		</div>
+		<div class="col-12 p-0">
             <button class="theme-btn " type="button" onclick="ajaxCall()">SUBMIT</button>
         </div>
     </div>
@@ -102,20 +106,32 @@ function validateForm(requestDemoForm) {
 
 function ajaxCall() {
 	if (validateForm('<portlet:namespace/>requestDemoForm')) {
-	    AUI().use('aui-base', 'io', 'aui-io-request', function(A) {
-	        A.io.request('${requestDemoFormURL}', {
-	            method: 'post',
-	            form: { id: '<portlet:namespace />requestDemoForm' },
-	            on: {
-	                success: function(event, id) {
-	                	console.log(submitted);
-	                },
-	                end: function(event, id) {
-	                    console.log("else part...");
+		var formData = $("#<portlet:namespace/>requestDemoForm").serialize();
+
+		  $.ajax({
+	            url: '${requestDemoFormURL}',
+	            method: 'POST',
+	            data: formData,                
+	            success: function(response) {
+	                if (response.status=='error') {
+	                	$("#<portlet:namespace/>error-msg").text(response.message).removeClass('d-none');  
+	                } 
+	                if(response.status=='success') {
+	                	Swal.fire({
+	                		  title: "Thank you for reaching out!",
+	                		  text: "We have received your message and will get back to you as soon as possible.",
+	                		  icon: "success",
+	                		  showConfirmButton: false,
+	                		  timer: 2500
+	                		}).then(() => {
+	                            window.location.reload();
+	                        });
 	                }
+	            },	
+	            error: function() {
+	                $("#<portlet:namespace/>error-msg").text('An error occurred while submitting the form.').removeClass('d-none');
 	            }
 	        });
-	    });
 	} else {
 		return false;
 	} 

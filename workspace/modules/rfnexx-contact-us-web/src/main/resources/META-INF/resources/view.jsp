@@ -18,13 +18,12 @@
 	}
 }
 
-
-
 </style>
 
 <portlet:resourceURL var="varSaveRfnexx" id='SaveRfnexx'></portlet:resourceURL>
+<portlet:resourceURL id="captcha" var="captchaResourceURL"/>
 
-<aui:form cssClass="w-100 d-flex flex-column align-items-start justify-content-center rfnexxForm" name="rfnexxForm" id="rfnexxForm" autocomplete="off">
+<aui:form cssClass="w-100 rfnexxForm" name="rfnexxForm" id="rfnexxForm" autocomplete="off">
     <div class="row m-0 w-100">
         <div class="col-12 col-sm-6 col-md-12 col-lg-12 mb-4 p-0">
             <aui:input type="text" name="fullname" id="fullname" placeholder="Contact Name" label="">
@@ -77,6 +76,11 @@
             	<aui:validator name="maxLength">500</aui:validator>
             </aui:input>
         </div>
+        <div class="col-md-12 p-0">
+			<liferay-captcha:captcha url="<%=captchaResourceURL%>" />
+			<p id="<portlet:namespace/>error-msg"
+				class="alert alert-danger d-none"></p>
+		</div>
         <div class="col-12 p-0">
             <button class="theme-btn " type="button" onclick="ajaxCall()">SUBMIT</button>
         </div>
@@ -84,34 +88,6 @@
 </aui:form>
 
 <script>
-/* function validateAndSubmit() {
-    const namePattern = /^[a-zA-Z\s]+$/;
-    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-    const fullname = document.getElementById('fullname').value;
-    const email = document.getElementById('email').value;
-
-    if (!namePattern.test(fullname)) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Invalid Name',
-            text: 'Please enter a valid name. Only letters and spaces are allowed.',
-        });
-        return;
-    }
-
-    if (!emailPattern.test(email)) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Invalid Email',
-            text: 'Please enter a valid email address.',
-        });
-        return;
-    }
-
-    ajaxCall();
-} */
-
 
 function validateForm(rfnexxForm) {
 	var liferayForm = Liferay.Form.get(rfnexxForm);
@@ -129,27 +105,32 @@ function validateForm(rfnexxForm) {
 
 function ajaxCall() {
 	if (validateForm('<portlet:namespace/>rfnexxForm')) {
-	    AUI().use('aui-base', 'io', 'aui-io-request', function(A) {
-	        A.io.request('${varSaveRfnexx}', {
-	            method: 'post',
-	            form: { id: '<portlet:namespace />rfnexxForm' },
-	            on: {
-	                success: function(event, id) {
-	                	console.log("submitted");
-	                    /* Swal.fire({
-	                        icon: 'success',
-	                        title: 'Success',
-	                        text: 'Your form has been successfully submitted!',
-	                    }).then(() => {
-	                        location.reload(); 
-	                    }); */
-	                },
-	                end: function(event, id) {
-	                    console.log("else part...");
+	    var formData = $("#<portlet:namespace/>rfnexxForm").serialize();
+
+		  $.ajax({
+	            url: '${varSaveRfnexx}',
+	            method: 'POST',
+	            data: formData,                
+	            success: function(response) {
+	                if (response.status=='error') {
+	                	$("#<portlet:namespace/>error-msg").text(response.message).removeClass('d-none');  
+	                } 
+	                if(response.status=='success') {
+	                	Swal.fire({
+	                		  title: "Thank you for reaching out!",
+	                		  text: "We have received your message and will get back to you as soon as possible.",
+	                		  icon: "success",
+	                		  showConfirmButton: false,
+	                		  timer: 2500
+	                		}).then(() => {
+	                            window.location.reload();
+	                        });
 	                }
+	            },
+	            error: function() {
+	                $("#<portlet:namespace/>error-msg").text('An error occurred while submitting the form.').removeClass('d-none');
 	            }
 	        });
-	    });
 	} else {
 		return false;
 	} 
