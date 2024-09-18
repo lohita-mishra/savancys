@@ -17,7 +17,9 @@
 	
  <c:if test="${empty allPosts}">
         <div >
-            <h5 class="text-center mx-auto col-12 col-md-10 col-lg-9 " >"Our team is complete for now, but we are always growing. Be sure to revisit our careers page for future opportunities"</h5>
+            <h5 class="text-center mx-auto col-12 col-md-10 col-lg-9 " >
+            	<liferay-ui:message key="sys-career-guest-posts-view-title"/>
+            </h5>
         </div>
     </c:if>
 	<c:forEach items="${allPosts}" var="jobPost">
@@ -35,26 +37,33 @@
 					<p>
 						<span class="font-weight-bold icon"><i
 							class="fa fa-briefcase mr-2"></i></span> <span
-							class="static-field font-weight-bold">Experience:</span>
+							class="static-field font-weight-bold">
+							<liferay-ui:message key="sys-career-guest-posts-view-label-experience"/></span>
 						${jobPost.getExperience()}
 					</p>
 					<p>
 						<span class="font-weight-bold icon"><i
-							class="fa fa-graduation-cap mr-2"></i></span> <span
-							class="static-field font-weight-bold">Qualification:</span>
+							class="fa fa-graduation-cap"></i></span> <span
+							class="static-field font-weight-bold">
+							<liferay-ui:message key="sys-career-guest-posts-view-label-qualification"/>
+						</span>
 						${jobPost.getQualification()}
 					</p>
 					<p>
 						<span class="font-weight-bold icon"><i
 							class="fa fa-map-marker mr-2"></i></span> <span
-							class="static-field font-weight-bold">Location:</span>
+							class="static-field font-weight-bold">
+							<liferay-ui:message key="sys-career-guest-posts-view-label-location"/>
+						</span>
 						${jobPost.getLocation()}
 					</p>
 					<c:if test="${not empty jobPost.getSkills()}">
 					<p>
 						<span class="font-weight-bold icon"><i
 							class="fa fa-cogs mr-2"></i></span> <span
-							class=" font-weight-bold static-field">Skills:</span>
+							class=" font-weight-bold static-field">
+							<liferay-ui:message key="sys-career-guest-posts-view-label-skills"/>
+						</span>
 						<span class="skills">${jobPost.getSkills()}</span>
 					</p>
 					</c:if>
@@ -64,20 +73,16 @@
 			<div class="col-lg-8 pt-3 ">
 				<div class="d-flex flex-column justify-content-between p-2">
 					<p class="mb-3 ">${jobPost.getDescription()}</p>
-
 					<div class="d-flex justify-content-end align-items-center">
-
 						<div class="mr-2">
-
 							<a class="btn bg-yellow-orange btn-info mr-2"
-								data-senna-off="true" href="<%=applyJobURL%>">Apply Now</a>
-
+								data-senna-off="true" href="<%=applyJobURL%>">
+								<liferay-ui:message key="sys-career-button-apply-now"/>
+							</a>
 						</div>
 					</div>
 				</div>
 			</div>
-
-
 		</div>
 	</c:forEach>
 </div>

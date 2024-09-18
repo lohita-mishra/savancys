@@ -27,9 +27,9 @@
     <aui:input type="hidden" name="type" value="Demo"></aui:input>
     <div class="row m-0 w-100">
         <div class="col-12 col-sm-6 col-md-12 col-lg-12 mb-4 p-0">
-            <aui:input type="text" name="fullname" id="fullname" placeholder="Contact Name" label="">
-            	<aui:validator name="required" errorMessage="Contact is required." />
-				<aui:validator name="custom" errorMessage="Invalid Contact Name">
+            <aui:input type="text" name="fullname" id="fullname" placeholder="rfx-request-demo-placeholder-name" label="">
+            	<aui:validator name="required" errorMessage="rfx-request-demo-error-name-required" />
+				<aui:validator name="custom" errorMessage="Invalid name">
 					function(val) {
 						var regex = /^[a-zA-Z\s]*$/; 
 						return regex.test(val);  
@@ -46,7 +46,7 @@
         <div class="col-12 col-sm-6 col-md-8 col-lg-8 mb-4 p-0 pr-4">
             <aui:input type="text" name="city" id="city" placeholder="City" label="">
             	<aui:validator name="required" errorMessage="City is required." />
-            	<aui:validator name="custom" errorMessage="Invalid City">
+            	<aui:validator name="custom" errorMessage="Invalid city">
 					function(val) {
 						var regex = /^[a-zA-Z\s]*$/; 
 						return regex.test(val);  
@@ -61,8 +61,8 @@
             </aui:input>
         </div>
         <div class="col-12 col-sm-6 col-md-12 col-lg-12 mb-4 p-0">
-            <aui:input type="email" name="contactPhone" id="contactPhone" placeholder="Contact Number" label="">
-             	<aui:validator name="required" errorMessage="Contact Number is required." />
+            <aui:input type="email" name="contactPhone" id="contactPhone" placeholder="rfx-request-demo-placeholder-contact-number" label="">
+             	<aui:validator name="required" errorMessage="rfx-request-demo-error-contact-number-required" />
 				<aui:validator name="digits"/>				
             </aui:input>
         </div>
@@ -73,7 +73,7 @@
             </aui:input>
         </div>
         <div class="col-12 mb-4 p-0">
-            <aui:input type="textarea" label="" style="height:5rem;" name="additionalInfo" id="additionalInfo" placeholder="Let's talk about your idea">
+            <aui:input type="textarea" label="" style="height:5rem;" name="additionalInfo" id="additionalInfo" placeholder="rfx-request-demo-placeholder-additional-info">
             	<aui:validator name="maxLength">500</aui:validator>
             </aui:input>
         </div>
@@ -83,7 +83,7 @@
 				class="alert alert-danger d-none"></p>
 		</div>
 		<div class="col-12 p-0">
-            <button class="theme-btn " type="button" onclick="ajaxCall()">SUBMIT</button>
+            <button class="theme-btn " type="button" onclick="ajaxCall()"><liferay-ui:message key="rfx-submit-button"/></button>
         </div>
     </div>
 </aui:form>
@@ -118,8 +118,8 @@ function ajaxCall() {
 	                } 
 	                if(response.status=='success') {
 	                	Swal.fire({
-	                		  title: "Thank you for reaching out!",
-	                		  text: "We have received your message and will get back to you as soon as possible.",
+	                		  title: '<liferay-ui:message key="rfx-thank-you-title"/>',
+	                		  text: '<liferay-ui:message key="rfx-thank-you-message"/>',
 	                		  icon: "success",
 	                		  showConfirmButton: false,
 	                		  timer: 2500
@@ -129,7 +129,7 @@ function ajaxCall() {
 	                }
 	            },	
 	            error: function() {
-	                $("#<portlet:namespace/>error-msg").text('An error occurred while submitting the form.').removeClass('d-none');
+	                $("#<portlet:namespace/>error-msg").text('<liferay-ui:message key="common-submit-error"/>').removeClass('d-none');
 	            }
 	        });
 	} else {

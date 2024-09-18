@@ -26,23 +26,23 @@
 				<liferay-ui:search-container-row
 					className=" com.savancys.model.ContactUs" keyProperty="id"
 					modelVar="contactUs">
-					<liferay-ui:search-container-column-text name="Inquiry Type"
+					<liferay-ui:search-container-column-text name="sys-contactus-label-inquiry-type"
 						property="inquiryType" orderable="false" />
-					<liferay-ui:search-container-column-text name="Name"
+					<liferay-ui:search-container-column-text name="sys-contactus-label-name"
 						orderable="false" value="${contactUs.firstName} ${contactUs.lastName}" />
-					<liferay-ui:search-container-column-text name="Phone Number"
+					<liferay-ui:search-container-column-text name="sys-contactus-label-phone-number"
 						property="phoneNumber" orderable="false" />
-					<liferay-ui:search-container-column-text name="Email"
+					<liferay-ui:search-container-column-text name="sys-contactus-label-email"
 						property="email" orderable="false" />
-					<liferay-ui:search-container-column-text name="Company"
+					<liferay-ui:search-container-column-text name="sys-contactus-label-company-name"
 						orderable="false" >
 						 <p class="tooltip-title">
 			                <span class="tooltip-text cus-tooltip" title="${contactUs.companyName}" >${contactUs.companyName}</span>
 			            </p>
 					</liferay-ui:search-container-column-text>	
-					<liferay-ui:search-container-column-text name="Country"
+					<liferay-ui:search-container-column-text name="sys-contactus-label-country"
 						property="country" orderable="false" />
-					<liferay-ui:search-container-column-text name="Remarks"
+					<liferay-ui:search-container-column-text name="sys-contactus-label-remarks"
 						orderable="false">
 						 <p class="tooltip-title">
 			                <span class="tooltip-text cus-tooltip" title="${contactUs.additionalInfo}" >${contactUs.additionalInfo}</span>

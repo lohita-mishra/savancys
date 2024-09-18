@@ -112,14 +112,14 @@ textarea {
 		<div class="border data-card p-3 mb-3 mt-4">
 			<div class="header error-size">
 				<h4 class="d-flex mb-3 align-items-center heading-select">
-					Application For ${jobPost.jobPostName}</h4>
+					<liferay-ui:message key="sys-career-guest-job-app-title-application-for"/> ${jobPost.jobPostName}</h4>
 			</div>
 			<aui:input name="jobPostId" type="hidden"
 				value="${jobPost.jobPostId}" />
 			<div class="row">
 				<div class="col-md-6">
-					<aui:input label="First Name" name="firstName">
-						<aui:validator name="required" />
+					<aui:input label="sys-career-guest-job-app-label-first-name" name="firstName">
+						<aui:validator name="required" errorMessage="sys-career-guest-job-app-error-first-name-req" />
 						<aui:validator name="custom"
 							errorMessage="Only alphabets are allowed.">
                             function(val, fieldNode, ruleValue) {
@@ -132,24 +132,24 @@ textarea {
                         </aui:validator>
 					</aui:input>
 
-					<aui:input label="Your Phone" name="phoneNumber"
+					<aui:input label="sys-career-guest-job-app-label-phone-number" name="phoneNumber"
 						value="${jobApplicant.getPhoneNumber()}">
-						<aui:validator name="required" />
+						<aui:validator name="required" errorMessage="sys-career-guest-job-app-error-phone-number-req" />
 						<aui:validator name="number" />
 					</aui:input>
 
-					<aui:select id="jobType" name="jobType" label="Job Type">
-						<aui:option>Select Job Type</aui:option>
+					<aui:select id="jobType" name="jobType" label="sys-career-guest-job-app-label-job-type">
+						<aui:option><liferay-ui:message key="common-select"/></aui:option>
 						<aui:option value="fullTime">Full Time</aui:option>
 						<aui:option value="Part Time">Part Time</aui:option>
-						<aui:validator name="required"></aui:validator>
+						<aui:validator name="required" errorMessage="sys-career-guest-job-app-error-job-type-req" />
 					</aui:select>
 				</div>
 
 				<div class="col-md-6">
-					<aui:input label="Last Name" name="lastName"
+					<aui:input label="sys-career-guest-job-app-label-last-name" name="lastName"
 						value="${jobApplicant.getLastName()}">
-						<aui:validator name="required" />
+						<aui:validator name="required" errorMessage="sys-career-guest-job-app-error-last-name-req" />
 						<aui:validator name="custom"
 							errorMessage="Only alphabets are allowed.">
                             function(val, fieldNode, ruleValue) {
@@ -162,21 +162,21 @@ textarea {
                         </aui:validator>
 					</aui:input>
 
-					<aui:input label="Your Email" name="email"
+					<aui:input label="sys-career-guest-job-app-label-email" name="email"
 						value="${jobApplicant.getEmail()}">
-						<aui:validator name="required" />
+						<aui:validator name="required" errorMessage="sys-career-guest-job-app-error-email-req"/>
 						<aui:validator name="email" />
 					</aui:input>
 
-					<aui:input label="Your State" name="state"
+					<aui:input label="sys-career-guest-job-app-label-state" name="state"
 						value="${jobApplicant.getState()}">
-						<aui:validator name="required" />
+						<aui:validator name="required" errorMessage="sys-career-guest-job-app-error-state-req"/>
 					</aui:input>
 				</div>
 			</div>
 			<c:if test="${!skillsList.isEmpty()}">
 				<div class="row ml-2">
-					<label> Skill</label>
+					<label><liferay-ui:message key="sys-career-guest-job-app-label-skill"/></label>
 				</div>
 
 				<div class="row ml-2" id="skillsContainer">
@@ -198,8 +198,8 @@ textarea {
 			</c:if>
 			<div class="row ">
 				<div class="col-md-12 mt-2">
-					<aui:input label="Web Authorization" name="webAuthorization">
-						<aui:validator name="required" />
+					<aui:input label="sys-career-guest-job-app-label-web-auth" name="webAuthorization">
+						<aui:validator name="required" errorMessage="sys-career-guest-job-app-error-web-auth-req"/>
 					</aui:input>
 				</div>
 
@@ -208,7 +208,7 @@ textarea {
 			<div class="row mt-3">
 				<div class="col-md-12">
 					<div class="form-group">
-						<aui:input type="textarea" name="message" label="Your Message"
+						<aui:input type="textarea" name="message" label="sys-career-guest-job-app-label-your-message"
 							id="coverLetter">
 							<aui:validator name="maxLength">500</aui:validator>
 						</aui:input>
@@ -221,25 +221,25 @@ textarea {
 				<div class="col-md-12 d-flex align-items-center">
 					<label for="<portlet:namespace/>file" class="attachment-icon mr-2"
 						onclick="document.getElementById('<portlet:namespace/>resumeInput').click();">
-						Upload Resume <i class="fas fa-paperclip"></i><span
+						<liferay-ui:message key="sys-career-guest-job-app-label-upload-resume"/><i class="fas fa-paperclip"></i><span
 						class="required-indicator">*</span>
 					</label>
 					<aui:input type="file" id="resumeInput" name="file"
 						cssClass="d-none" label="" value="${resume.title}" accept=".pdf">
 						<c:if test="${empty resume.title}">
-							<aui:validator name="required" />
+							<aui:validator name="required" errorMessage="sys-career-guest-job-app-error-upload-file-req"/>
 						</c:if>
 					</aui:input>
 					<p id="fileNameDisplay" class="mt-1 ml-2">${resume.title}</p>
-					<p id="errorMessage" class="error d-none">File upload is required.</p>
+					<p id="errorMessage" class="error d-none"><liferay-ui:message key="sys-career-guest-job-app-error-upload-file-req"/>/p>
 				</div>
 			</div>
 		</div>
 
 		<aui:button-row>
 			<aui:button cssClass="float-left btn btn-primary mb-3 " style="background:#3693C0; border:#3693C0"
-				href="<%=backPageRender.toString()%>" value="Back"></aui:button>
-			<aui:button type="submit" cssClass="d-block ml-auto" style="background:#3693C0; border:#3693C0" value="Submit"></aui:button>
+				href="<%=backPageRender.toString()%>" value="common-back-button"></aui:button>
+			<aui:button type="submit" cssClass="d-block ml-auto" style="background:#3693C0; border:#3693C0" value="common-submit-button"></aui:button>
 		</aui:button-row>
 	</aui:form>
 </div>

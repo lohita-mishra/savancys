@@ -70,17 +70,19 @@
 				<aui:form name="contactUsForm" id="contactUsForm" autocomplete="off">
 					<div class="row">
 						<div class="col-md-12">
-							<aui:select name="inquiryType" label="Inquiry Type"
+							<aui:select name="inquiryType" label="sys-contactus-label-inquiry-type"
 								id="inquiryType">
-								<aui:option value="">Select</aui:option>
-								<aui:option value="Gerenal Inquiry">Gerenal Inquiry</aui:option>
+								<aui:option value=""><liferay-ui:message key="common-select"/></aui:option>
+								<aui:option value='<liferay-ui:message key="sys-contactus-label-gerenal-inquiry"/>'>
+									<liferay-ui:message key="sys-contactus-label-gerenal-inquiry"/>
+								</aui:option>
 							</aui:select>
 						</div>
 						<div class="col-md-12">
-							<aui:input type="text" name="firstName" label="First Name"
+							<aui:input type="text" name="firstName" label="sys-contactus-label-first-name"
 								id="firstName">
-								<aui:validator name="required" errorMessage="First Name is required." />
-								<aui:validator name="custom" errorMessage="Invalid First Name">
+								<aui:validator name="required" errorMessage="sys-contactus-error-first-name-required" />
+								<aui:validator name="custom" errorMessage="sys-contactus-error-first-name-invalid">
 									function(val) {
 									    var regex = /^[a-zA-Z\s]*$/; 
 									    return regex.test(val);  
@@ -89,10 +91,10 @@
 							</aui:input>
 						</div>
 						<div class="col-md-12">
-							<aui:input type="text" name="lastName" label="Last Name"
+							<aui:input type="text" name="lastName" label="sys-contactus-label-last-name"
 								id="lastName">
-								<aui:validator name="required" errorMessage="Last Name is required." />
-								<aui:validator name="alpha"/><aui:validator name="custom" errorMessage="Invalid Last Name">
+								<aui:validator name="required" errorMessage="sys-contactus-error-last-name-required" />
+								<aui:validator name="alpha"/><aui:validator name="custom" errorMessage="sys-contactus-error-last-name-invalid">
 									function(val) {
 									    var regex = /^[a-zA-Z\s]*$/; 
 									    return regex.test(val);  
@@ -102,10 +104,10 @@
 							</aui:input>
 						</div>
 						<div class="col-md-12">
-							<aui:input type="tel" name="phoneNumber" label="Phone Number"
+							<aui:input type="tel" name="phoneNumber" label="sys-contactus-label-phone-number"
 								id="phoneNumber">
-								<aui:validator name="required" errorMessage="Phone Number is required." />
-								<aui:validator name="custom" errorMessage="Invalid Phone Number">
+								<aui:validator name="required" errorMessage="sys-contactus-error-phone-number-required" />
+								<aui:validator name="custom" errorMessage="sys-contactus-error-phone-number-invalid">
 									function(val) {
 									    var regex = /^\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/; 
 									    return regex.test(val);  
@@ -114,24 +116,24 @@
 							</aui:input>
 						</div>
 						<div class="col-md-12">
-							<aui:input type="text" name="email" label="Email Id" id="email">
-								<aui:validator name="required" errorMessage="Email is required."/>
+							<aui:input type="text" name="email" label="sys-contactus-label-email" id="email">
+								<aui:validator name="required" errorMessage="sys-contactus-error-email-required"/>
 								<aui:validator name="email" />
 							</aui:input>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-12">
-							<aui:input type="text" name="companyName" label="Company Name"
+							<aui:input type="text" name="companyName" label="sys-contactus-label-company-name"
 								id="companyName">
-								<aui:validator name="required" errorMessage="Company Name is required." />
+								<aui:validator name="required" errorMessage="sys-contactus-error-company-name-required" />
 							</aui:input>
 						</div>
 						<div class="col-md-12">
-							<aui:input type="text" name="country" label="Country"
+							<aui:input type="text" name="country" label="sys-contactus-label-country"
 								id="country">
-								<aui:validator name="required" errorMessage="Country is required." />
-								<aui:validator name="custom" errorMessage="Invalid Country">
+								<aui:validator name="required" errorMessage="sys-contactus-error-country-required" />
+								<aui:validator name="custom" errorMessage="sys-contactus-error-country-invalid">
 									function(val) {
 									    var regex = /^[a-zA-Z\s]*$/; 
 									    return regex.test(val);  
@@ -143,13 +145,15 @@
 					<div class="row">
 						<div class="col-md-12">
 							<aui:input type="textarea" name="additionalInfo"
-								label="Additional Information" id="additionalInfo">
-								<aui:validator name="maxLength">500</aui:validator>
+								label="sys-contactus-label-additional-info" id="additionalInfo">
+								<aui:validator name="maxLength">
+									<liferay-ui:message key="sys-contactus-additional-info-max-length"/>
+								</aui:validator>
 							</aui:input>
 						</div>
 						<div class="col-md-12 termsAndConditions">
 							<aui:input name="termsAndConditions" type="checkbox" label="I agree to <a href='/web/savancys/terms-and-conditions' target='_blank' class='text-primary text-decoration-underline'>Terms & Conditions</a> of Savancys.">
-								<aui:validator name="required" errorMessage="Terms and conditions is required."></aui:validator>
+								<aui:validator name="required" errorMessage="sys-contactus-error-terms-and-conditions-required"></aui:validator>
 							</aui:input>
 						</div>
 						<div class="col-md-12">
@@ -159,13 +163,17 @@
 					</div>
 					</div>	
 					<aui:button type="submit" cssClass="submit-btn" id="contactUsSubmitForm" 
-						value="Request a callback" />
+						value="sys-contactus-submit" />
 						
 				</aui:form>
 				<div class="d-none success-div" id="<portlet:namespace/>success-msg">
 					<img alt="thankyou" style="width: 60px;" src="<%=request.getContextPath() + "/image/thank-you.png"%>" width="5">
-					<h2 class="mt-2 font-weight-bold">Thank you for reaching out!</h2>
-					<p>We have received your message and will get back to you as soon as possible.</p>
+					<h2 class="mt-2 font-weight-bold">
+						<liferay-ui:message key="sys-contactus-thank-you-massage-title"/>
+					</h2>
+					<p>
+						<liferay-ui:message key="sys-contactus-thank-you-massage-description"/>
+					</p>
 				</div>
 			</div>
 		</div>
@@ -224,7 +232,7 @@ $('#<portlet:namespace/>contactUsSubmitForm').on('click', function(event) {
                 }
             },
             error: function() {
-                $("#<portlet:namespace/>error-msg").text('An error occurred while submitting the form.').removeClass('d-none');
+                $("#<portlet:namespace/>error-msg").text('<liferay-ui:message key="common-submit-error"/>').removeClass('d-none');
             }
         });
     } else {
