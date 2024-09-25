@@ -14,3 +14,10 @@ $(window).on("load", function() {
         $("header.site_header").css("top", padTop);
     }
 });
+
+$(document).ready(function () {
+	$(".trigger").click(function(){
+	    $(this, ".site_menu").toggleClass("active");
+	    $(".site_header .site_menu").toggleClass("active");
+	});
+});

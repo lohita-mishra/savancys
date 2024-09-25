@@ -70,10 +70,12 @@
 
 	<@liferay_util["include"] page=body_bottom_include />
 	<@liferay_util["include"] page=bottom_include />
-  	<@liferay.js file_name = "${javascript_folder}/jquery-ui.js" /> 	
 	
 		<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-	 <#--   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> -->
+	 <#-- 
+  	<@liferay.js file_name = "${javascript_folder}/jquery-ui.js" /> 	
+	   -->
+	   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> 
 	    
 	<#--<script src='https://unpkg.com/three@0.138.3/build/three.min.js'></script>
 	    <script src='https://unpkg.com/three@0.138.3/examples/js/controls/OrbitControls.js'></script>

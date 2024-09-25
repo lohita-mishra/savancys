@@ -60,12 +60,12 @@
 
 <div class="container-fluid p-0">
 	<div class="row m-0">
-		<div class="col-md-6 web-content p-0">
+		<div class="col-lg-6 web-content p-0">
 			<liferay-portlet:runtime instanceId="contact_us"
 				portletName="com_liferay_journal_content_web_portlet_JournalContentPortlet" />
 		</div>
 
-		<div class="col-md-5 contact-us-form ml-4 d-flex align-items-stretch">
+		<div class="col-lg-5 contact-us-form ml-4 d-flex align-items-stretch">
 			<div class="container mt-4">
 				<aui:form name="contactUsForm" id="contactUsForm" autocomplete="off">
 					<div class="row">

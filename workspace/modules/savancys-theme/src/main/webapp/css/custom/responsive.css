@@ -56,7 +56,7 @@
   header.site_heder.mobile nav > ul > li > a i {
     display: none;
   }
-  header.site_heder.mobile nav > ul > li > a:after {
+  header.site_heder.mobile nav > ul > li > a.mega-menu-trigger:after {
     content: "\f105";
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
@@ -68,6 +68,14 @@
   header.site_heder.mobile nav > ul > li > a.active:after {
     transform: rotate(90deg);
   }
+  header.site_heder.mobile nav > ul .mega-menu .menu-content > li > a.dropdown-item {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 9;
+ }
   header.site_heder.mobile nav > ul .mega-menu {
     display: none;
   }
@@ -87,6 +95,8 @@
     border-radius: 1.5rem;
     border-color: var(--border-color);
   }
+  
+  
   header.site_heder.mobile .demo-n-login-buttons {
     flex-basis: 100%;
     display: flex;

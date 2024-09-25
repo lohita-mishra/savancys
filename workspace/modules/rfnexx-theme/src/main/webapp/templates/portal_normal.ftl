@@ -53,7 +53,7 @@
 			</#if>
 		</section>
 	
-		<footer class="site_footer">
+		<footer class="site_footer overflow-hidden">
 			<#include "${full_templates_path}/footer.ftl" />
 		</footer>
 	

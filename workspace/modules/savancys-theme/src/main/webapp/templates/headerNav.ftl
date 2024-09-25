@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row align-items-center">
             <a class="logo-container" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
-				<img alt="${logo_description}" height="${site_logo_height}" src="${site_logo}" width="${site_logo_width}" />
+				<img alt="${logo_description}" height="45" src="${site_logo}" width="100" />
 			</a>
             <nav>
                 <#assign preferencesMap = {"displayDepth": "1", "portletSetupPortletDecoratorId": "barebone"} />

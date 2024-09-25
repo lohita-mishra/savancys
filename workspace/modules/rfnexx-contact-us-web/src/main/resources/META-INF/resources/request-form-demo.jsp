@@ -17,7 +17,11 @@
     box-shadow: none !important;
 	}
 }
-
+@media (min-width: 768px) {
+	.rf-padding{
+		padding-right: 1.5rem !important;
+	}
+}
 </style>
 
 <portlet:resourceURL var="requestDemoFormURL" id='requestFormDemo'></portlet:resourceURL>
@@ -26,7 +30,7 @@
 <aui:form cssClass="w-100 requestDemoForm" name="requestDemoForm" id="requestDemoForm" autocomplete="off">
     <aui:input type="hidden" name="type" value="Demo"></aui:input>
     <div class="row m-0 w-100">
-        <div class="col-12 col-sm-6 col-md-12 col-lg-12 mb-4 p-0">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-4 p-0">
             <aui:input type="text" name="fullname" id="fullname" placeholder="rfx-request-demo-placeholder-name" label="">
             	<aui:validator name="required" errorMessage="rfx-request-demo-error-name-required" />
 				<aui:validator name="custom" errorMessage="Invalid name">
@@ -37,13 +41,13 @@
 				</aui:validator>
             </aui:input>
         </div>
-        <div class="col-12 col-sm-6 col-md-12 col-lg-12 mb-4 p-0">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-4 p-0">
             <aui:input type="text" name="street" id="street" placeholder="Street" label="">
            		<aui:validator name="required" errorMessage="Street is required." />
 				<aui:validator name="maxLength">200</aui:validator>
             </aui:input>
         </div>
-        <div class="col-12 col-sm-6 col-md-8 col-lg-8 mb-4 p-0 pr-4">
+        <div class="col-12 col-sm-12 col-md-8 col-lg-8 mb-4 p-0 rf-padding">
             <aui:input type="text" name="city" id="city" placeholder="City" label="">
             	<aui:validator name="required" errorMessage="City is required." />
             	<aui:validator name="custom" errorMessage="Invalid city">
@@ -54,19 +58,19 @@
 				</aui:validator>
             </aui:input>
         </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 p-0">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mb-4 p-0">
             <aui:input type="text" name="postcode" id="postcode" label="" placeholder="Postcode">
               <aui:validator name="required" errorMessage="Postcode is required." />
               <aui:validator name="digits"/>
             </aui:input>
         </div>
-        <div class="col-12 col-sm-6 col-md-12 col-lg-12 mb-4 p-0">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-4 p-0">
             <aui:input type="email" name="contactPhone" id="contactPhone" placeholder="rfx-request-demo-placeholder-contact-number" label="">
              	<aui:validator name="required" errorMessage="rfx-request-demo-error-contact-number-required" />
 				<aui:validator name="digits"/>				
             </aui:input>
         </div>
-        <div class="col-12 col-sm-6 col-md-12 col-lg-12 mb-4 p-0">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-4 p-0">
             <aui:input type="email" name="email" id="email" placeholder="Email" label="">
             	<aui:validator name="required" errorMessage="Email is required."/>
 				<aui:validator name="email" />

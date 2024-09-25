@@ -47,7 +47,7 @@ header.site_heder:not(.mobile) nav > ul > li > a {
   text-decoration: none;
   position: relative;
 }
-header.site_heder:not(.mobile) nav > ul > li > a:after {
+header.site_heder:not(.mobile) nav > ul > li > a.mega-menu-trigger:after {
   content: "";
   position: absolute;
   left: 0;
@@ -58,7 +58,7 @@ header.site_heder:not(.mobile) nav > ul > li > a:after {
   border-radius: 1rem;
   transition: 0.2s;
 }
-header.site_heder:not(.mobile) nav > ul > li > a:hover:after {
+header.site_heder:not(.mobile) nav > ul > li > a.mega-menu-trigger:hover:after {
   width: 100%;
 }
 header.site_heder:not(.mobile) nav > ul > li > a.mega-menu-trigger i {
