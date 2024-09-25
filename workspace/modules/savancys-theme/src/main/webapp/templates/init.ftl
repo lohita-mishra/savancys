@@ -34,7 +34,8 @@
 	js_main_file = htmlUtil.escape(portalUtil.getStaticResourceURL(request, "${javascript_folder}/main.js"))
 
 	company_id = company.getCompanyId()
-	company_name = htmlUtil.escape(company.getName())
+	<#--company_name = htmlUtil.escape(company.getName())-->
+	company_name = ''
 	company_logo = htmlUtil.escape(theme_display.getCompanyLogo())
 	company_logo_height = theme_display.getCompanyLogoHeight()
 	company_logo_width = theme_display.getCompanyLogoWidth()
@@ -273,7 +274,8 @@
 <#if htmlTitle??>
 	<#assign html_title = htmlUtil.escape(htmlTitle) />
 <#else>
-	<#assign html_title = the_title + " - " + company_name />
+	<#assign html_title = the_title />
+	<#-- <#assign html_title = the_title + " - " + company_name /> -->
 </#if>
 
 <#if layouts??>

@@ -3,7 +3,8 @@
 <#include init />
 
 <html class="${root_css_class}" dir="<@liferay.language key="lang.dir" />" lang="${w3c_language_id}">
-
+<#assign html_title = layout.getHTMLTitle(locale) />
+<#assign html_title = html_title + " - " + site_name />
 <head>
 	<title>${html_title}</title>
 	<meta content="initial-scale=1.0, width=device-width" name="viewport" />

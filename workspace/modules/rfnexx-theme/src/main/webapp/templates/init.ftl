@@ -273,7 +273,8 @@
 <#if htmlTitle??>
 	<#assign html_title = htmlUtil.escape(htmlTitle) />
 <#else>
-	<#assign html_title = the_title + " - " + company_name />
+	<#assign html_title = the_title />
+	<#-- <#assign html_title = the_title + " - " + company_name /> -->
 </#if>
 
 <#if layouts??>
