@@ -89,9 +89,27 @@
 <div class="refjob-card-sec">
 	<div class="container">
 		<div class="heading">
-			<h4>LCA Posting</h4>
-			<aui:button href="<%=addLcaPostingURL%>" cssClass="ml-auto"
-				value="New LCA Posting"></aui:button>
+			<h2>LCA Posting</h2>
+
+			<div class="row mt-3">
+
+				<div class="col-md-4">
+					<aui:select name="filterDesignation" label="Choose designation">
+						<aui:option>Select</aui:option>
+					</aui:select>
+				</div>
+				<div class="col-md-4">
+				<aui:select name="filterLocation" label="Choose location">
+						<aui:option>Select</aui:option>
+					</aui:select>
+				</div>
+
+				<div class="form-group col-md-4 mt-4 d-flex align-items-end justify-content-between">
+					<aui:button type="submit" value="Filter"></aui:button>
+					<aui:button href="<%=addLcaPostingURL%>" value="New LCA Posting"></aui:button>
+				</div>
+			</div>
+
 		</div>
 
 		<div class="row" id="lca-posting-container">
