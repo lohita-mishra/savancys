@@ -99,7 +99,7 @@
 		</div>
 
 		<!-- Pagination buttons -->
-		<div class="pagination">
+		<div class="pagination d-flex align-items-center">
 			<button id="prev-page" class="disabled">Previous</button>
 			<span id="page-info">Page 1</span>
 			<button id="next-page">Next</button>
@@ -125,12 +125,9 @@ $(document).ready(function () {
 		}
 	});
 	function renderPage(page) {
-		console.log("map");
 		const start = (page - 1) * rowsPerPage;
 		const end = start + rowsPerPage;
-		console.log(lcaPostingData);
 		const pageData = lcaPostingData.slice(start, end);
-		console.log(lcaPostingData);
 		// Clear the existing lca posting cards
 		$('#lca-posting-container').empty();
 		pageData.map(function (lcaPosting) {
@@ -158,8 +155,9 @@ $(document).ready(function () {
 				`;
 			$("#lca-posting-container").append(lcaPostingCard);
 		});
+		
 		// Update page info text
-		$('#page-info').text(`Page ${page} of ${Math.ceil(lcaPostingData.length / rowsPerPage)}`);
+		$('#page-info').text(`Page `+page+` of` +Math.ceil(lcaPostingData.length / rowsPerPage)+``);
 
 		// Enable/Disable the pagination buttons based on the current page
 		$('#prev-page').toggleClass('disabled', page === 1);
