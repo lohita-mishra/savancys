@@ -119,4 +119,78 @@
 		<reference entity="AssetTag"
 			package-path="com.liferay.portlet.asset" />
 	</entity>
+	
+	<entity local-service="true" name="JobPost"
+		remote-service="true" uuid="true" table="JobPost">
+		<!-- PK fields -->
+		<column name="jobPostId" primary="true" type="long" />
+		<!-- Group instance -->
+		<column name="groupId" type="long" />
+		<!-- Audit fields -->
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<column name="active" type="boolean" />
+		<column name="delete" type="boolean" />
+		<!-- Other fields -->
+		<column name="jobPostName" type="String" />
+		<column name="experience" type="String" />
+		<column name="qualification" type="String" />
+		<column name="location" type="String" />
+		<column name="skills" type="String" />
+		<column name="description" type="String" />
+		<column name="salary" type="String" />
+		<column name="status" type="boolean" />
+		<!-- Order -->
+		<order by="desc">
+			<order-column name="createDate" />
+		</order>
+		<!-- Finder methods -->
+		<finder name="jobPostName" return-type="Collection">
+			<finder-column name="jobPostName" />
+		</finder>
+		<!-- References -->
+		<reference entity="AssetEntry"
+			package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag"
+			package-path="com.liferay.portlet.asset" />
+	</entity>
+	
+	<entity local-service="true" name="LcaPosting"
+		remote-service="true" uuid="true" table="LCA_Posting">
+		<!-- PK fields -->
+		<column name="lcaPostingId" primary="true" type="long" />
+		<!-- Group instance -->
+		<column name="groupId" type="long" />
+		<!-- Audit fields -->
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<!-- Other fields -->
+		<column name="designation" type="String" />
+		<column name="location" type="String" />
+		<column name="oNetCode" type="String" />
+		<column name="description" type="String" />
+		<!-- Order -->
+		<order by="desc">
+			<order-column name="createDate" />
+		</order>
+		<!-- Finder methods -->
+		<finder name="designation" return-type="Collection">
+			<finder-column name="designation" />
+		</finder>
+		<finder name="designationAndLocation" return-type="Collection">
+			<finder-column name="designation" />
+			<finder-column name="location" />
+		</finder>
+		<!-- References -->
+		<reference entity="AssetEntry"
+			package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag"
+			package-path="com.liferay.portlet.asset" />
+	</entity>
 </service-builder>

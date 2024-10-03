@@ -1,0 +1,4 @@
+Bundle-Name: savancys-lca-posting
+Bundle-SymbolicName: com.savancys.lca.posting
+Bundle-Version: 1.0.0
+Export-Package: com.savancys.lca.posting.constants

@@ -39,6 +39,7 @@ import com.savancys.service.persistence.ContactUsPersistence;
 import com.savancys.service.persistence.JobApplicantFinder;
 import com.savancys.service.persistence.JobApplicantPersistence;
 import com.savancys.service.persistence.JobPostPersistence;
+import com.savancys.service.persistence.LcaPostingPersistence;
 
 import java.io.Serializable;
 
@@ -454,6 +455,9 @@ public abstract class JobApplicantLocalServiceBaseImpl
 
 	@Reference
 	protected JobPostPersistence jobPostPersistence;
+
+	@Reference
+	protected LcaPostingPersistence lcaPostingPersistence;
 
 	@Reference
 	protected com.liferay.counter.kernel.service.CounterLocalService

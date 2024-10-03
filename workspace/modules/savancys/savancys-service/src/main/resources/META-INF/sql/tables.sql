@@ -63,3 +63,18 @@ create table JobPost (
 	salary VARCHAR(75) null,
 	status BOOLEAN
 );
+
+create table LCA_Posting (
+	uuid_ VARCHAR(75) null,
+	lcaPostingId LONG not null primary key,
+	groupId LONG,
+	companyId LONG,
+	userId LONG,
+	userName VARCHAR(75) null,
+	createDate DATE null,
+	modifiedDate DATE null,
+	designation VARCHAR(75) null,
+	location VARCHAR(75) null,
+	oNetCode VARCHAR(75) null,
+	description STRING null
+);
