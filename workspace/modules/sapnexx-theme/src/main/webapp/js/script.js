@@ -26,6 +26,17 @@ $(document).ready(function () {
         prevArrow: $('.prev-client'),
         nextArrow: $('.next-client')
     });
+    
+    $('.hero-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        prevArrow: $('.prev-serv'),
+        nextArrow: $('.next-serv'),
+        infinite: true,
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+    });
 
     // Home Page Experience Counter Section ------------------
     // let counted = 0;

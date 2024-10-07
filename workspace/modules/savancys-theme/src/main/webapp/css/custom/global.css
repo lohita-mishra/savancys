@@ -1,5 +1,6 @@
+
 :root {
-  --blue-1: #254fad;
+  /* --blue-1: #254fad;
   --blue-2: #3185ba;
   --blue-3: #399bd8;
   --blue-4: #1e5272;
@@ -24,8 +25,9 @@
   --text-color: #000;
   --text-color-alt: ;
   --heading-color: var(--dark-grey);
-  --theme-font: "DM Sans", sans-serif;
-  font-size: 16px;
+  --theme-font: "DM Sans", sans-serif; 
+  --theme-font-size: 16px;*/
+  font-size: var(--theme-font-size);
 }
 
 body {

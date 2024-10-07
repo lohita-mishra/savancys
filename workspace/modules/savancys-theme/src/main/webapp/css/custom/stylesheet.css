@@ -1,3 +1,5 @@
+@import 'frontend-token-definition.json';
+
 body {
 	overflow-x: hidden;
 }
