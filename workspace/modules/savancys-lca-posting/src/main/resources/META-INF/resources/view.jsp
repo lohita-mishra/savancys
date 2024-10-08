@@ -83,8 +83,20 @@
 <portlet:renderURL var="addLcaPostingURL">
 	<portlet:param name="mvcPath" value="/add_lca_posting.jsp" />
 </portlet:renderURL>
+<portlet:renderURL var="lcaPostingDetailURL">
+	<portlet:param name="mvcRenderCommandName" value="/lcaPostingDetail" />
+</portlet:renderURL>
 
-<portlet:resourceURL id="lcaPostings" var="lcaPostingURL" />
+<portlet:resourceURL id="lcaPostings" var="lcaPostingURL"/>
+
+<portlet:resourceURL id="getDesignationAndLocation" var="designationURL" >
+	<portlet:param name="getList" value="designation"/>
+</portlet:resourceURL>
+
+
+<portlet:resourceURL id="getDesignationAndLocation" var="locationURL">
+	<portlet:param name="getList" value="location"/>
+</portlet:resourceURL>
 
 <div class="refjob-card-sec">
 	<div class="container">
@@ -94,12 +106,12 @@
 			<div class="row mt-3">
 
 				<div class="col-md-4">
-					<aui:select name="filterDesignation" label="Choose designation">
+					<aui:select id="filterDesignation" name="filterDesignation" label="Choose designation">
 						<aui:option>Select</aui:option>
 					</aui:select>
 				</div>
 				<div class="col-md-4">
-				<aui:select name="filterLocation" label="Choose location">
+				    <aui:select name="filterLocation" label="Choose location">
 						<aui:option>Select</aui:option>
 					</aui:select>
 				</div>
@@ -162,7 +174,7 @@ $(document).ready(function () {
 									<div class="code">`+ lcaPosting.oNetCode + `</div>
 								</div>
 								<div>
-									<a href="#" class="read-more d-flex flex-column"> <i
+									<a href="<%=lcaPostingDetailURL%>&id=` + lcaPosting.lcaPostingId + `" class="read-more d-flex flex-column"> <i
 										class="fa-solid fa-arrow-up-right-from-square mb-1"></i> <span>Read
 											More</span>
 									</a>
@@ -196,5 +208,55 @@ $(document).ready(function () {
             renderPage(currentPage);
         }
     });
+
+    function designation(){
+    	console.log("designation");
+    	$('#<portlet:namespace/>filterDesignation').empty();
+    	$("#<portlet:namespace />filterDesignation").append(new Option("Select",""));
+    	$.ajax({
+    		type: "GET",
+    		url: "<%=designationURL%>",
+    		contentType: "application/json",
+    		success: function (response) {
+    			console.log("response");
+    			const resp = JSON.parse(response);
+    			resp.forEach(function(designation) {
+    				console.log(designation);
+    				$("#<portlet:namespace/>filterDesignation").append(
+    				 new Option(designation, designation));
+    			});
+    	 	}
+    	});
+    }
+    
+   // locationF();
 });
+
+function locationF(){
+	var designation = $("#<portlet:namespace/>filterDesignation").val();
+	$('#<portlet:namespace/>filterLocation').empty();
+	$("#<portlet:namespace />filterLocation").append(new Option("Select",""));
+	$.ajax({
+		type: "GET",
+		url: '<%=locationURL %>' + "&<portlet:namespace/>filterDesignation" + designation,
+		contentType: "application/json",
+		success: function (response) {
+			console.log(response);
+			$('#<portlet:namespace/>filterLocation').empty();
+			const resp = JSON.parse(response);
+			resp.forEach(function(location) {
+				console.log(location);
+				$("#<portlet:namespace/>filterLocation").append(
+				 new Option(location, location));
+			});
+	 	}
+	});	
+}
+
 </script>
+<%-- /* $("#<portlet:namespace/>filterDesignation").change(function() {
+	var designation = $("#<portlet:namespace/>filterDesignation").val();
+	console.log("clicked" +designation);
+	 location(designation);
+	
+}); */ --%>
