@@ -1,0 +1,563 @@
+{
+	"frontendTokenCategories": [
+		{
+			"frontendTokenSets": [
+				{
+					"frontendTokens": [
+						{
+							"defaultValue": "#181818",
+							"editorType": "ColorPicker",
+							"label": "heading-color",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "heading-color"
+								}
+							],
+							"name": "headingColor",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#EAEAEA",
+							"editorType": "ColorPicker",
+							"label": "heading-color-light",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "heading-color-light"
+								}
+							],
+							"name": "headingColorLight",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#595566",
+							"editorType": "ColorPicker",
+							"label": "text-color",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "text-color"
+								}
+							],
+							"name": "textColor",
+							"type": "String"
+						},
+						{
+							"defaultValue": "",
+							"editorType": "ColorPicker",
+							"label": "text-color-alt",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "text-color-alt"
+								}
+							],
+							"name": "textColorAlt",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#30313f",
+							"editorType": "ColorPicker",
+							"label": "theme-color-alt",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "theme-color-alt"
+								}
+							],
+							"name": "themeColorAlt",
+							"type": "String"
+						}
+					],
+					"label": "brand-colors",
+					"name": "brandColors"
+				},
+				{
+					"frontendTokens": [
+						{
+							"defaultValue": "#ff8100",
+							"editorType": "ColorPicker",
+							"label": "theme-yellow",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "theme-yellow"
+								}
+							],
+							"name": "themeYellow",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#FFECBB",
+							"editorType": "ColorPicker",
+							"label": "theme-yellow-light",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "theme-yellow-light"
+								}
+							],
+							"name": "themeYellowLight",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#ED1B24",
+							"editorType": "ColorPicker",
+							"label": "theme-red",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "theme-red"
+								}
+							],
+							"name": "themeRed",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#262626",
+							"editorType": "ColorPicker",
+							"label": "dardk-bg",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "dardk-bg"
+								}
+							],
+							"name": "dardkBg",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#4EAF4E",
+							"editorType": "ColorPicker",
+							"label": "theme-green",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "theme-green"
+								}
+							],
+							"name": "themeGreen",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#A4EDA4",
+							"editorType": "ColorPicker",
+							"label": "theme-green-light",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "theme-green-light"
+								}
+							],
+							"name": "themeGreenLight",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#fff",
+							"editorType": "ColorPicker",
+							"label": "theme-white",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "theme-white"
+								}
+							],
+							"name": "themeWhite",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#FDF8F8",
+							"editorType": "ColorPicker",
+							"label": "light-white",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "light-white"
+								}
+							],
+							"name": "lightWhite",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#B2B0BC",
+							"editorType": "ColorPicker",
+							"label": "l-light-white",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "l-light-white"
+								}
+							],
+							"name": "lLightWhite",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#F5F5F5",
+							"editorType": "ColorPicker",
+							"label": "theme-grey",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "theme-grey"
+								}
+							],
+							"name": "theme-grey",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#EBEBEB",
+							"editorType": "ColorPicker",
+							"label": "theme-grey-d",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "theme-grey-d"
+								}
+							],
+							"name": "themeGreyD",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#F3F3F3",
+							"editorType": "ColorPicker",
+							"label": "light-grey",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "light-grey"
+								}
+							],
+							"name": "lightGrey",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#464646",
+							"editorType": "ColorPicker",
+							"label": "dm-grey",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "dm-grey"
+								}
+							],
+							"name": "dmGrey",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#D9D9D9",
+							"editorType": "ColorPicker",
+							"label": "bg-grey",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "bg-grey"
+								}
+							],
+							"name": "bgGrey",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#151515",
+							"editorType": "ColorPicker",
+							"label": "dark-color",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "dark-color"
+								}
+							],
+							"name": "darkColor",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#000",
+							"editorType": "ColorPicker",
+							"label": "black",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "black"
+								}
+							],
+							"name": "blackColor",
+							"type": "String"
+						}
+					],
+					"label": "custom-colors",
+					"name": "customColors"
+				},
+				{
+					"frontendTokens": [
+						{
+							"defaultValue": "#0b5fff",
+							"editorType": "ColorPicker",
+							"label": "primary",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "primary"
+								}
+							],
+							"name": "primaryColor",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#6b6c7e",
+							"editorType": "ColorPicker",
+							"label": "secondary",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "secondary"
+								}
+							],
+							"name": "secondaryColor",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#287d3c",
+							"editorType": "ColorPicker",
+							"label": "success",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "success"
+								}
+							],
+							"name": "successColor",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#2e5aac",
+							"editorType": "ColorPicker",
+							"label": "info",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "info"
+								}
+							],
+							"name": "infoColor",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#b95000",
+							"editorType": "ColorPicker",
+							"label": "warning",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "warning"
+								}
+							],
+							"name": "warningColor",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#da1414",
+							"editorType": "ColorPicker",
+							"label": "danger",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "danger"
+								}
+							],
+							"name": "dangerColor",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#393a4a",
+							"editorType": "ColorPicker",
+							"label": "gray-dark",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "gray-dark"
+								}
+							],
+							"name": "grayDarkColor",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#272833",
+							"editorType": "ColorPicker",
+							"label": "dark",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "dark"
+								}
+							],
+							"name": "darkColor",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#f1f2f5",
+							"editorType": "ColorPicker",
+							"label": "light",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "light"
+								}
+							],
+							"name": "lightColor",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#f7f8f9",
+							"editorType": "ColorPicker",
+							"label": "lighter",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "lighter"
+								}
+							],
+							"name": "lighterColor",
+							"type": "String"
+						}
+					],
+					"label": "theme-colors",
+					"name": "themeColors"
+				}
+			],
+			"label": "color-system",
+			"name": "colorSystem"
+		},
+		{
+			"frontendTokenSets": [
+				{
+					"frontendTokens": [
+						{
+							"defaultValue": "Cabin, sans-serif",
+							"label": "theme-font",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "theme-font"
+								}
+							],
+							"name": "themeFont",
+							"type": "String"
+						},
+						{
+							"defaultValue": "Lato, sans-serif",
+							"label": "theme-font-alt",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "theme-font-alt"
+								}
+							],
+							"name": "themeFontAlt",
+							"type": "String"
+						}
+					],
+					"label": "font-family",
+					"name": "fontFamily"
+				},
+				{
+					"frontendTokens": [
+						{
+							"defaultValue": "18px",
+							"editorType": "Length",
+							"label": "theme-font-size",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "theme-font-size"
+								}
+							],
+							"name": "themeFontSize",
+							"type": "String"
+						}
+					],
+					"label": "font-size",
+					"name": "fontSize"
+				},
+				{
+					"frontendTokens": [
+						{
+							"defaultValue": "4rem",
+							"editorType": "Length",
+							"label": "pading-top-sec",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "pading-top-sec"
+								}
+							],
+							"name": "padingTopSec",
+							"type": "String"
+						},
+						{
+							"defaultValue": "4rem",
+							"editorType": "Length",
+							"label": "padding-bottom-sec",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "padding-bottom-sec"
+								}
+							],
+							"name": "paddingBottomSec",
+							"type": "String"
+						}
+					],
+					"label": "padding",
+					"name": "padding"
+				},
+				{
+					"frontendTokens": [
+						{
+							"defaultValue": "1rem",
+							"editorType": "Length",
+							"label": "theme-border-radius",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "theme-border-radius"
+								}
+							],
+							"name": "themeBorderRadius",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#C1C1C1",
+							"editorType": "ColorPicker",
+							"label": "border-grey",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "border-grey"
+								}
+							],
+							"name": "borderGrey",
+							"type": "String"
+						},
+						{
+							"defaultValue": "#DBDBD9",
+							"editorType": "ColorPicker",
+							"label": "border-light",
+							"mappings": [
+								{
+									"type": "cssVariable",
+									"value": "border-light"
+								}
+							],
+							"name": "borderLight",
+							"type": "String"
+						}
+					],
+					"label": "border",
+					"name": "border"
+				}
+			],
+			"label": "layout",
+			"name": "layout"
+		}
+	]
+}
