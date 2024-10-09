@@ -21,10 +21,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
     
-    <@liferay.css file_name="${css_folder}/custom/stylesheet.css" />
     <@liferay.css file_name="${css_folder}/custom/global.css" />
     <@liferay.css file_name="${css_folder}/custom/style.css" />
     <@liferay.css file_name="${css_folder}/custom/responsive.css" />
+    <@liferay.css file_name="${css_folder}/custom/stylesheet.css" />
 	
 </head>
 
