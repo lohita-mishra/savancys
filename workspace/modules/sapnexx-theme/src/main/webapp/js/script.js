@@ -113,9 +113,17 @@ $(document).ready(function () {
 
 });
 
-window.onload = () => {
-    AOS.init();
-}
+$(document).ready(function () {
+    $(".fade-up").attr("data-aos", "fade-up");
+	$(".fade-left").attr("data-aos", "fade-left");
+	$(".fade-right").attr("data-aos", "fade-right");
+	setTimeout(function(){
+		AOS.init();
+	},1000)
+	
+});
+
+
 
 
 
