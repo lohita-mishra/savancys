@@ -1,6 +1,6 @@
 dependencies {
 	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
-
+compileOnly group: "javax.mail", name: "mail", version: "1.4.7"
 	compile project(":modules:savancys:savancys-api")
 	compile project(":modules:common-validator-util")
 
