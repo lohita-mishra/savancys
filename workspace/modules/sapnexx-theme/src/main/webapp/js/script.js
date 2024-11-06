@@ -1,5 +1,12 @@
 
 $(document).ready(function () {
+	// Header toggle for mobile navigation
+	 $(".trigger").click(function () {
+        $("header.site_header nav").addClass("active");
+    });
+    $("header.site_header nav .back").click(function () {
+        $("header.site_header nav").removeClass("active");
+    });
     // Home Page Clients Logo Section -----------------------
     $('#service-sec').slick({
         slidesToShow: 3,
